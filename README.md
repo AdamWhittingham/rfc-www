@@ -130,7 +130,7 @@ Replace the placeholder emblem in the nav:
 <div class="nav__emblem-placeholder">95<br>BG</div>
 
 <!-- Replace with: -->
-<img src="images/logo.png" alt="95th Bomb Group Heritage logo">
+<img src="images/logo.png" alt="95th Bomb Group Heritage Association logo">
 ```
 
 ---
