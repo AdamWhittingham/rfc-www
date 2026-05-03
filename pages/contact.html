@@ -70,30 +70,16 @@
       <div class="section-label observe-fade">Send a Message</div>
       <h2 class="section-title observe-fade">Get in Touch</h2>
 
-      <!-- Contact form — works as-is for mailto: or connect to Formspree/Netlify Forms for S3 hosting -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="observe-fade">
-        <!-- Tip: Sign up at formspree.io (free tier), replace YOUR_FORM_ID with your ID for a working form on S3 -->
-        <div class="form-group">
-          <label class="form-label" for="name">Your Name</label>
-          <input class="form-input" type="text" id="name" name="name" required placeholder="e.g. John Smith">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="email">Email Address</label>
-          <input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="subject">Subject</label>
-          <input class="form-input" type="text" id="subject" name="subject" placeholder="e.g. School Visit Enquiry">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="message">Message</label>
-          <textarea class="form-textarea" id="message" name="message" required placeholder="Your message…"></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary" style="width:100%;">Send Message</button>
-        <p style="font-family:var(--font-label); font-size:11px; color:var(--khaki); margin-top:0.75rem; letter-spacing:0.05em;">
-          Alternatively, follow us on <a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" style="color:var(--red);">Facebook</a> or <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" style="color:var(--red);">Instagram</a> to send a message directly.
-        </p>
-      </form>
+          <form action="mailto:enquiries@95thbg-horham.com" method="GET" enctype="text/plain">
+            <a href="mailto:enquiries@95thbg-horham.com" class="btn btn--primary" style="width:100%; text-align:center; display:block;">
+              Send us an email
+            </a>
+            <p style="font-family:var(--font-label); ">
+              This will open your default email app. Alternatively, reach us directly on 
+              <a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" style="color:var(--red);">Facebook</a> or 
+              <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" style="color:var(--red);">Instagram</a>.
+            </p>
+          </form>
     </div>
 
     <div>
