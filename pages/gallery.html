@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — 95th Bomb Group Heritage · Red Feather Club</title>
+  <meta name="description" content="Photographs of the Red Feather Club museum, the site at Horham, historical images and events." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Gallery filter tabs */
+    .gallery-filter {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      font-family: var(--font-label);
+      font-weight: 700; font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.45rem 1rem; border-radius: 2px;
+      border: 1.5px solid rgba(139,125,94,0.3);
+      background: transparent; color: var(--khaki);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--gold); color: var(--ink); }
+    .filter-btn.active {
+      background: var(--ink); color: var(--gold);
+      border-color: var(--ink);
+    }
+
+    /* Masonry-ish grid */
+    .photo-grid {
+      columns: 3; column-gap: 8px;
+    }
+    .photo-item {
+      break-inside: avoid; margin-bottom: 8px;
+      cursor: pointer; overflow: hidden;
+      position: relative; display: block;
+    }
+    .photo-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(10,9,7,0);
+      transition: background 0.3s;
+    }
+    .photo-item:hover::after { background: rgba(10,9,7,0.25); }
+    .photo-item img { width: 100%; display: block; transition: transform 0.5s; }
+    .photo-item:hover img { transform: scale(1.02); }
+    .photo-placeholder {
+      background: var(--aged);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 200px; gap: 0.5rem;
+      padding: 1.5rem;
+    }
+    .photo-placeholder__icon { font-size: 1.5rem; opacity: 0.5; }
+    .photo-placeholder__label {
+      font-family: var(--font-label); font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--khaki); text-align: center;
+    }
+
+    .photo-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      padding: 1.5rem 0.75rem 0.75rem;
+      font-family: var(--font-label); font-size: 11px;
+      letter-spacing: 0.05em; color: white;
+      opacity: 0; transition: opacity 0.3s;
+      z-index: 1;
+    }
+    .photo-item:hover .photo-caption { opacity: 1; }
+
+    @media (max-width: 800px) { .photo-grid { columns: 2; } }
+    @media (max-width: 480px) { .photo-grid { columns: 1; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav__logo" href="../index.html">
+    <div class="nav__emblem"><div class="nav__emblem-placeholder">95<br>BG</div></div>
+    <div class="nav__title">Red Feather Club<span>95th Bomb Group Heritage</span></div>
+  </a>
+  <ul class="nav__links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="history.html">Our Past</a></li>
+    <li><a href="museum.html">The Museum</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Find Us</a></li>
+    <li><a href="support.html" class="nav__cta">Support Us</a></li>
+  </ul>
+  <button class="nav__burger"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav__mobile">
+  <a href="../index.html">Home</a>
+  <a href="history.html">Our Past</a>
+  <a href="museum.html">The Museum</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Find Us</a>
+  <a href="support.html">Support Us</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="section-label">Photography</div>
+    <h1 class="section-title">Gallery</h1>
+    <p class="section-body">Photographs of the site, the museum, events, and our history. Add your images to <code style="color:var(--gold);">images/gallery/</code> and update this page.</p>
+  </div>
+</div>
+
+<section class="section">
+
+  <div class="gallery-filter observe-fade">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="site">The Site</button>
+    <button class="filter-btn" data-filter="museum">Museum Interior</button>
+    <button class="filter-btn" data-filter="events">Events</button>
+    <button class="filter-btn" data-filter="historical">Historical</button>
+  </div>
+
+  <!-- ============================================================
+       PHOTO GRID
+       To add real photos:
+       1. Place your images in images/gallery/
+       2. Replace each .photo-placeholder div with:
+          <img src="../images/gallery/your-photo.jpg" alt="Description">
+       3. Optionally add a <span class="photo-caption">Caption text</span>
+       ============================================================ -->
+  <div class="photo-grid observe-fade">
+
+    <div class="photo-item" data-category="site" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:280px;">
+        <div class="photo-placeholder__icon">🏛️</div>
+        <div class="photo-placeholder__label">The Red Feather Club exterior<br>Replace with real photo</div>
+      </div>
+      <span class="photo-caption">The Red Feather Club — Horham</span>
+    </div>
+
+    <div class="photo-item" data-category="museum" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:200px;">
+        <div class="photo-placeholder__icon">🎖️</div>
+        <div class="photo-placeholder__label">Museum interior<br>Replace with real photo</div>
+      </div>
+      <span class="photo-caption">Inside the Red Feather Club</span>
+    </div>
+
+    <div class="photo-item" data-category="historical" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:240px;">
+        <div class="photo-placeholder__icon">✈️</div>
+        <div class="photo-placeholder__label">Historical photograph<br>Replace with real photo</div>
+      </div>
+      <span class="photo-caption">B-17 of the 95th Bomb Group, ca. 1944</span>
+    </div>
+
+    <div class="photo-item" data-category="events" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:220px;">
+        <div class="photo-placeholder__icon">🎵</div>
+        <div class="photo-placeholder__label">Event photograph<br>Replace with real photo</div>
+      </div>
+      <span class="photo-caption">Evening dance at the Red Feather Club</span>
+    </div>
+
+    <div class="photo-item" data-category="site" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:300px;">
+        <div class="photo-placeholder__icon">🌿</div>
+        <div class="photo-placeholder__label">Memorial garden<br>Replace with real photo</div>
+      </div>
+      <span class="photo-caption">The Memorial Garden, Horham</span>
+    </div>
+
+    <div class="photo-item" data-category="museum" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:200px;">
+        <div class="photo-placeholder__icon">📸</div>
+        <div class="photo-placeholder__label">Museum display<br>Replace with real photo</div>
+      </div>
+    </div>
+
+    <div class="photo-item" data-category="historical" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:260px;">
+        <div class="photo-placeholder__icon">👨‍✈️</div>
+        <div class="photo-placeholder__label">Crew photograph<br>Replace with real photo</div>
+      </div>
+    </div>
+
+    <div class="photo-item" data-category="events" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:220px;">
+        <div class="photo-placeholder__icon">🎪</div>
+        <div class="photo-placeholder__label">Americana Day<br>Replace with real photo</div>
+      </div>
+      <span class="photo-caption">Americana Day 2025</span>
+    </div>
+
+    <div class="photo-item" data-category="site" data-lightbox="">
+      <div class="photo-placeholder" style="min-height:200px;">
+        <div class="photo-placeholder__icon">📷</div>
+        <div class="photo-placeholder__label">Site photograph<br>Replace with real photo</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--aged); border-radius:4px; font-family: var(--font-label); font-size: 13px; color: var(--khaki); line-height:1.7;" class="observe-fade">
+    <strong style="color:var(--ink);">Adding Photos:</strong>
+    Place JPG/WebP files in <code style="color:var(--red);">images/gallery/</code> and replace the <code>.photo-placeholder</code> div inside each <code>.photo-item</code> with an <code>&lt;img&gt;</code> tag.
+    For lightbox support, the <code>data-lightbox</code> attribute on the parent div will automatically open the image.
+    Recommended max width: 1600px. Use WebP for best performance on S3/CDN hosting.
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand-name">Red Feather Club</div>
+      <div class="footer__brand-sub">95th Bomb Group Heritage Association</div>
+    </div>
+    <div><div class="footer__col-title">Explore</div><ul class="footer__links"><li><a href="history.html">Our Past</a></li><li><a href="museum.html">The Museum</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div><div class="footer__col-title">Information</div><ul class="footer__links"><li><a href="contact.html">Contact</a></li><li><a href="support.html">Support Us</a></li></ul></div>
+    <div><div class="footer__col-title">Connect</div><ul class="footer__links"><li><a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank">Facebook</a></li><li><a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank">Instagram</a></li></ul></div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 95th Bomb Group Heritage Association · <span class="footer__charity">Registered Charity No. 1119769</span></p>
+  </div>
+</footer>
+
+<div id="lightbox" class="lightbox">
+  <button class="lightbox__close">✕</button>
+  <img id="lightbox-img" class="lightbox__img" src="" alt="" />
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+  // Gallery filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.photo-item').forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — 95th Bomb Group Heritage · Red Feather Club</title>
+  <meta name="description" content="Forthcoming events, open days, evening dances and special events at the Red Feather Club, Horham, Suffolk." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .events-full { max-width: 900px; margin: 0 auto; }
+
+    .season-heading {
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 900;
+      color: var(--ink); margin: 3rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .event-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 1.5rem; align-items: start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(139,125,94,0.2);
+    }
+
+    .event-badge {
+      text-align: center;
+      background: var(--ink);
+      border-radius: 4px;
+      padding: 0.5rem;
+    }
+
+    .event-badge__day {
+      display: block; font-family: var(--font-display);
+      font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1;
+    }
+
+    .event-badge__month {
+      display: block; font-family: var(--font-label);
+      font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--khaki);
+    }
+
+    .event-details__tag {
+      display: inline-block;
+      font-family: var(--font-label); font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px; margin-bottom: 0.4rem;
+    }
+
+    .tag--open { background: rgba(74,82,64,0.15); color: var(--olive); }
+    .tag--evening { background: rgba(155,35,53,0.1); color: var(--red); }
+    .tag--special { background: rgba(200,146,58,0.15); color: #a07028; }
+
+    .event-details__name {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.25rem;
+    }
+
+    .event-details__time {
+      font-family: var(--font-label); font-size: 12px;
+      color: var(--khaki); letter-spacing: 0.05em;
+    }
+
+    .event-details__desc {
+      font-size: 0.88rem; color: var(--khaki);
+      line-height: 1.65; margin-top: 0.5rem;
+      max-width: 520px;
+    }
+
+    @media (max-width: 600px) {
+      .event-row { grid-template-columns: 64px 1fr; }
+      .event-row > :last-child { grid-column: 2; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav__logo" href="../index.html">
+    <div class="nav__emblem"><div class="nav__emblem-placeholder">95<br>BG</div></div>
+    <div class="nav__title">Red Feather Club<span>95th Bomb Group Heritage</span></div>
+  </a>
+  <ul class="nav__links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="history.html">Our Past</a></li>
+    <li><a href="museum.html">The Museum</a></li>
+    <li><a href="events.html" class="active">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Find Us</a></li>
+    <li><a href="support.html" class="nav__cta">Support Us</a></li>
+  </ul>
+  <button class="nav__burger"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav__mobile">
+  <a href="../index.html">Home</a>
+  <a href="history.html">Our Past</a>
+  <a href="museum.html">The Museum</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Find Us</a>
+  <a href="support.html">Support Us</a>
+</nav>
+
+<div class="page-hero">
+  <!-- Optional: <div class="page-hero__bg" style="background-image:url('../images/events-hero.jpg')"></div> -->
+  <div class="page-hero__inner">
+    <div class="section-label">2026 Season</div>
+    <h1 class="section-title">Forthcoming Events</h1>
+    <p class="section-body">Open days, evening dances, living history weekends and more. The Red Feather Club comes to life throughout the year — we'd love to see you.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="events-full">
+
+    <p style="background:rgba(200,146,58,0.08); border-left:3px solid var(--gold); padding:1rem 1.25rem; font-size:0.9rem; color:var(--khaki); margin-bottom:2rem;">
+      <strong style="color:var(--ink);">Booking:</strong> Open Days are free entry; no tickets required. Evening events require tickets; follow us on <a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" style="color:var(--red);">Facebook</a> or <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" style="color:var(--red);">Instagram</a> for ticket announcements.
+    </p>
+
+    <h2 class="season-heading observe-fade">2026 Open Days<br/>10am to 4pm</h2>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">26</span>
+        <span class="event-badge__month">Apr</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--open">Open Day</span>
+        <div class="event-details__name">Museum Open Day</div>
+        <div class="event-details__time">10am – 4pm · Free Entry · No booking required</div>
+        <p class="event-details__desc">Explore the restored buildings, browse the collections, and meet our knowledgeable volunteers.</p>
+      </div>
+    </div>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">31</span>
+        <span class="event-badge__month">May</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--open">Open Day</span>
+        <div class="event-details__name">Museum Open Day</div>
+        <div class="event-details__time">10am – 4pm · Free Entry</div>
+      </div>
+    </div>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">28</span>
+        <span class="event-badge__month">Jun</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--special">Special Event</span>
+        <div class="event-details__name">Americana Day!</div>
+        <div class="event-details__time">10am – 4pm · Free Entry · Family Friendly</div>
+        <p class="event-details__desc">Our popular annual Americana Day — American cars, music, food, costumes and more. A brilliant day for the whole family.</p>
+      </div>
+    </div>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">26</span>
+        <span class="event-badge__month">Jul</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--open">Open Day</span>
+        <div class="event-details__name">Museum Open Day</div>
+        <div class="event-details__time">10am – 4pm · Free Entry</div>
+      </div>
+    </div>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">30</span>
+        <span class="event-badge__month">Aug</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--open">Open Day</span>
+        <div class="event-details__name">Museum Open Day</div>
+        <div class="event-details__time">10am – 4pm · Free Entry</div>
+      </div>
+    </div>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">27</span>
+        <span class="event-badge__month">Sep</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--open">Open Day</span>
+        <div class="event-details__name">Museum Open Day</div>
+        <div class="event-details__time">10am – 4pm · Free Entry</div>
+      </div>
+    </div>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">25</span>
+        <span class="event-badge__month">Oct</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--open">Open Day</span>
+        <div class="event-details__name">Museum Open Day — Last of the Season</div>
+        <div class="event-details__time">10am – 4pm · Free Entry</div>
+      </div>
+    </div>
+
+    <h2 class="season-heading observe-fade">Evening Events</h2>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">25</span>
+        <span class="event-badge__month">Apr</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--evening">Evening Dance</span>
+        <div class="event-details__name">Hotcha Paul &amp; The Head Honchos</div>
+        <div class="event-details__time">Evening · Guest DJ: The Melody Man · Tickets Required</div>
+        <p class="event-details__desc">An authentic 1940s evening in the Red Feather Club — swing dancing, great music, and an atmosphere like no other.</p>
+      </div>
+    </div>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">27</span>
+        <span class="event-badge__month">Jun</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--evening">Evening Dance</span>
+        <div class="event-details__name">Deluxe Tuxedo</div>
+        <div class="event-details__time">Evening · Guest DJ: Slimboy · Tickets Required</div>
+      </div>
+    </div>
+
+    <div class="event-row observe-fade">
+      <div class="event-badge">
+        <span class="event-badge__day">26</span>
+        <span class="event-badge__month">Sep</span>
+      </div>
+      <div class="event-details">
+        <span class="event-details__tag tag--evening">Evening Dance</span>
+        <div class="event-details__name">Noelle Vaughn &amp; Her Flaming Hearts</div>
+        <div class="event-details__time">Evening · Tickets Required</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; padding: 2rem; background: var(--aged); border-radius: 4px;" class="observe-fade">
+      <h3 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.75rem;">School &amp; Group Visits</h3>
+      <p style="font-size:0.9rem; color:var(--khaki); line-height:1.7; margin-bottom:1rem;">We offer tailored educational visits for schools and groups throughout the year, including weekdays. Our volunteers bring the history to life with first-hand accounts and guided tours of the restored buildings.</p>
+      <a href="contact.html" class="btn btn--primary">Enquire About a Visit</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-band observe-fade">
+  <div class="section-label">Stay Updated</div>
+  <h2 class="section-title">Follow Us for the Latest</h2>
+  <p>Ticket announcements, event updates, and behind-the-scenes from the museum — all on our social channels.</p>
+  <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" rel="noopener" class="btn btn--fb">Facebook</a>
+    <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener" class="btn btn--ig">Instagram</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand-name">Red Feather Club</div>
+      <div class="footer__brand-sub">95th Bomb Group Heritage Association</div>
+      <div class="footer__social">
+        <a class="footer__social-btn" href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--khaki)"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a class="footer__social-btn" href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--khaki)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        </a>
+      </div>
+    </div>
+    <div><div class="footer__col-title">Explore</div><ul class="footer__links"><li><a href="history.html">Our Past</a></li><li><a href="museum.html">The Museum</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div><div class="footer__col-title">Information</div><ul class="footer__links"><li><a href="contact.html">Contact &amp; Find Us</a></li><li><a href="support.html">Support Us</a></li><li><a href="https://empireclothingstore.com/95th-bg-heritage-museum/" target="_blank">Merch Store</a></li></ul></div>
+    <div><div class="footer__col-title">Connect</div><ul class="footer__links"><li><a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank">Facebook</a></li><li><a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank">Instagram</a></li></ul></div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 95th Bomb Group Heritage Association · <span class="footer__charity">Registered Charity No. 1119769</span></p>
+    <p>Horham Road, Denham, Eye, IP21 5DG</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

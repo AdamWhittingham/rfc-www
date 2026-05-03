@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>95th Bomb Group Heritage — The Red Feather Club, Horham</title>
+  <meta name="description" content="The official UK home of the 95th Bomb Group Heritage Association. A living museum and monument to the only Eighth Air Force Bomb Group to receive the Distinguished Unit Citation three times." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- homepage-only tweaks ---- */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      background: rgba(75,83,32,0.2);
+      margin-top: 5rem;
+    }
+    .intro-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .intro-card:hover { background: var(--od-light); }
+    .intro-card__num {
+      font-family: var(--font-display);
+      font-size: 4rem; font-weight: 900;
+      color: rgba(200,146,58,0.15);
+      line-height: 1; margin-bottom: -0.5rem;
+    }
+    .intro-card__title {
+      font-family: var(--font-display);
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.75rem;
+    }
+    .intro-card__body {
+      font-size: 0.9rem; line-height: 1.75; color: var(--khaki);
+      margin-bottom: 1.25rem;
+    }
+    .intro-card__link {
+      font-family: var(--font-label);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .intro-card__link svg { transition: transform 0.2s; }
+    .intro-card__link:hover svg { transform: translateX(3px); }
+
+    @media (max-width: 800px) {
+      .intro-grid { grid-template-columns: 1fr; }
+    }
+
+.merch-strip {
+  background: var(--od-dark);
+  border-top: 1px solid rgba(184,150,12,0.2);
+  border-bottom: 1px solid rgba(184,150,12,0.2);
+  padding: 1.5rem 2rem;
+  display: flex; align-items: center;
+  justify-content: center; gap: 2rem; flex-wrap: wrap;
+}
+.merch-strip p {
+  font-family: var(--font-label);
+  font-weight: 600; font-size: 14px;
+  letter-spacing: 0.1em; color: var(--sand);
+}
+.merch-strip strong { color: var(--insignia-yel); }
+
+    /* Quote */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-style: italic;
+      color: var(--ink);
+    }
+    .pull-quote cite {
+      display: block; margin-top: 0.5rem;
+      font-family: var(--font-label); font-style: normal;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--khaki);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" aria-label="Main navigation">
+  <a class="nav__logo" href="index.html">
+    <div class="nav__emblem">
+      <!-- Replace src with actual logo image path -->
+      <div class="nav__emblem-placeholder">95<br>BG</div>
+    </div>
+    <div class="nav__title">
+      Red Feather Club
+      <span>95th Bomb Group Heritage</span>
+    </div>
+  </a>
+  <ul class="nav__links" role="list">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="pages/history.html">Our Past</a></li>
+    <li><a href="pages/museum.html">The Museum</a></li>
+    <li><a href="pages/events.html">Events</a></li>
+    <li><a href="pages/gallery.html">Gallery</a></li>
+    <li><a href="pages/contact.html">Find Us</a></li>
+    <li><a href="pages/support.html" class="nav__cta">Support Us</a></li>
+  </ul>
+  <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<nav class="nav__mobile" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="pages/history.html">Our Past</a>
+  <a href="pages/museum.html">The Museum</a>
+  <a href="pages/events.html">Events</a>
+  <a href="pages/gallery.html">Gallery</a>
+  <a href="pages/contact.html">Find Us</a>
+  <a href="pages/support.html">Support Us</a>
+</nav>
+
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" aria-label="Welcome">
+  <div class="hero__img-fallback">
+      <img class="hero__img"
+           src="images/home-hero.jpg"
+           alt="The Red Feather Club at Horham"
+           fetchpriority="high">
+  </div>
+
+  <div class="hero__overlay"></div>
+
+  <div class="hero__content">
+    <p class="hero__kicker fade-up fade-up--1">Horham, Suffolk · Est. 1943</p>
+    <h1 class="hero__title fade-up fade-up--2">
+      The <em>Red Feather Club</em><br>Horham
+    </h1>
+    <p class="hero__subtitle fade-up fade-up--3">
+      Home of the 95th Bomb Group Heritage Association — a living museum and monument to the men of the Eighth Air Force
+    </p>
+
+    <div class="hero__stats fade-up fade-up--3">
+      <div>
+        <div class="hero__stat-num">334</div>
+        <div class="hero__stat-label">Missions Flown</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">3×</div>
+        <div class="hero__stat-label">Distinguished Unit Citation</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">425</div>
+        <div class="hero__stat-label">Enemy Aircraft Destroyed</div>
+      </div>
+    </div>
+
+    <div class="hero__actions fade-up fade-up--4">
+      <a href="pages/events.html" class="btn btn--primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        2026 Events
+      </a>
+      <a href="pages/museum.html" class="btn btn--outline">Explore the Museum</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== MERCH STRIP ===================== -->
+<div class="merch-strip">
+  <p>🎽 <strong>Official Merch Now Available</strong> — Support the museum by shopping our online store</p>
+  <a href="https://empireclothingstore.com/95th-bg-heritage-museum/" target="_blank" rel="noopener" class="btn btn--outline" style="padding:0.5rem 1.25rem; font-size:12px;">Shop Now →</a>
+</div>
+
+
+<!-- ===================== INTRO CARDS ===================== -->
+<div class="section" style="padding-bottom: 0;">
+  <div class="observe-fade">
+    <div class="section-label">Explore</div>
+    <h2 class="section-title">A Place of Memory &amp; Living History</h2>
+    <p class="section-body">The 95th Bomb Group Heritage Association preserves the buildings, stories, and legacy of the men who flew from Horham — the only Eighth Air Force group to receive the Distinguished Unit Citation three times.</p>
+  </div>
+
+  <div class="intro-grid observe-fade">
+    <div class="intro-card">
+      <div class="intro-card__num">01</div>
+      <h3 class="intro-card__title">Our Past</h3>
+      <p class="intro-card__body">From the first mission in May 1943 to the first daylight raid on Berlin, discover the extraordinary story of the 95th Bomb Group and the men who flew for freedom.</p>
+      <a href="pages/history.html" class="intro-card__link">
+        Read the History
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card__num">02</div>
+      <h3 class="intro-card__title">The Museum</h3>
+      <p class="intro-card__body">Step inside a faithfully restored 1940s NCO's social club. Visitors say it's like going back in time — 1940s memorabilia, artefacts, and stories brought back to life.</p>
+      <a href="pages/museum.html" class="intro-card__link">
+        Visit the Museum
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card__num">03</div>
+      <h3 class="intro-card__title">Events &amp; Open Days</h3>
+      <p class="intro-card__body">Regular open days, 1940s dances, living history weekends, school visits and special events throughout the year. Something for everyone.</p>
+      <a href="pages/events.html" class="intro-card__link">
+        See Events
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================== SOCIAL FEED ===================== -->
+<section class="social-feed" id="news" aria-label="Latest News">
+  <div class="social-feed__inner">
+    <div class="social-feed__header observe-fade">
+      <div>
+        <div class="section-label">Latest News</div>
+        <h2 class="section-title" style="margin-bottom:0">From the Museum</h2>
+      </div>
+      <ul class="social-tabs" role="tablist">
+        <li class="social-tab active" role="tab" data-tab="news" aria-selected="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </li>
+        <li class="social-tab" role="tab" data-tab="instagram" aria-selected="false">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </li>
+        <li class="social-tab" role="tab" data-tab="embed" aria-selected="false">Live Feed</li>
+      </ul>
+    </div>
+
+    <!-- Facebook post cards — replace with real post data or JS fetch -->
+    <div class="social-tab-panel active" data-panel="news">
+      <div class="feed-grid">
+
+        <article class="feed-card observe-fade">
+          <div class="feed-card__img">
+            <!-- Replace with real image: <img src="../images/posts/post1.jpg" alt="..."> -->
+            <div class="feed-card__img-placeholder">🛩️</div>
+            <div class="feed-card__platform feed-card__platform--fb">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+          </div>
+          <div class="feed-card__body">
+            <div class="feed-card__date">28 Apr 2026</div>
+            <p class="feed-card__text">What a wonderful open day yesterday! Fantastic turnout with visitors from as far afield as Texas to see the restored buildings and share memories of the 95th. Thank you to everyone who came.</p>
+            <a href="https://facebook.com/95thBombGroupHeritage" target="_blank" rel="noopener" class="feed-card__link">
+              Read on Facebook
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="feed-card observe-fade">
+          <div class="feed-card__img">
+            <div class="feed-card__img-placeholder">🏛️</div>
+            <div class="feed-card__platform feed-card__platform--fb">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+          </div>
+          <div class="feed-card__body">
+            <div class="feed-card__date">19 Apr 2026</div>
+            <p class="feed-card__text">We're thrilled to confirm the full 2026 event season! Americana Day returns on 28th June, and we have some brilliant evening dances lined up. Full details on the Events page.</p>
+            <a href="https://facebook.com/95thBombGroupHeritage" target="_blank" rel="noopener" class="feed-card__link">
+              Read on Facebook
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="feed-card observe-fade">
+          <div class="feed-card__img">
+            <div class="feed-card__img-placeholder">📸</div>
+            <div class="feed-card__platform feed-card__platform--fb">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+          </div>
+          <div class="feed-card__body">
+            <div class="feed-card__date">10 Apr 2026</div>
+            <p class="feed-card__text">A school group from Framlingham visited this week. It's always so rewarding to see young people engage with this history. The children were fantastic — so many great questions!</p>
+            <a href="https://facebook.com/95thBombGroupHeritage" target="_blank" rel="noopener" class="feed-card__link">
+              Read on Facebook
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="social-cta observe-fade">
+        <a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" rel="noopener" class="btn btn--fb">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Follow us on Facebook
+        </a>
+        <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener" class="btn btn--ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="white"/></svg>
+          Follow on Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- Instagram grid -->
+    <div class="social-tab-panel" data-panel="instagram">
+      <div class="feed-grid">
+        <article class="feed-card observe-fade">
+          <div class="feed-card__img">
+            <div class="feed-card__img-placeholder">📷</div>
+            <div class="feed-card__platform feed-card__platform--ig">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+          </div>
+          <div class="feed-card__body">
+            <div class="feed-card__date">26 Apr 2026</div>
+            <p class="feed-card__text">Open day sunshine ☀️ Beautiful day at Horham. The memorial garden was looking gorgeous. Come and see us on 31st May for our next open day! #95thBG #USAAF #Horham</p>
+            <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener" class="feed-card__link">
+              View on Instagram
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+        <article class="feed-card observe-fade">
+          <div class="feed-card__img">
+            <div class="feed-card__img-placeholder">✈️</div>
+            <div class="feed-card__platform feed-card__platform--ig">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+          </div>
+          <div class="feed-card__body">
+            <div class="feed-card__date">15 Apr 2026</div>
+            <p class="feed-card__text">Archive photograph of a 95th B-17 over the English countryside, ca. 1944. These men were barely in their twenties. Never forgotten. #WW2 #EighthAirForce #B17</p>
+            <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener" class="feed-card__link">
+              View on Instagram
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+        <article class="feed-card observe-fade">
+          <div class="feed-card__img">
+            <div class="feed-card__img-placeholder">🎵</div>
+            <div class="feed-card__platform feed-card__platform--ig">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+          </div>
+          <div class="feed-card__body">
+            <div class="feed-card__date">27 Mar 2026</div>
+            <p class="feed-card__text">Preparations are underway for our April dance! The Red Feather Club at night is something very special. Swing dancing, 1940s sounds, fantastic people. Tickets still available.</p>
+            <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener" class="feed-card__link">
+              View on Instagram
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+      <div class="social-cta observe-fade">
+        <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener" class="btn btn--ig">
+          Follow on Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- Live embed panel -->
+    <div class="social-tab-panel" data-panel="embed">
+      <p style="font-family:var(--font-label); color:var(--khaki); font-size:13px; margin-bottom:1.5rem; letter-spacing:0.05em;">
+        Embed your Facebook Page plugin or Instagram widget here. Replace these placeholders with official embed code from Meta.
+      </p>
+      <div class="embed-grid">
+        <div class="embed-placeholder">
+          <div class="embed-placeholder__icon">🔵</div>
+          <div class="embed-placeholder__text">Facebook Page Feed<br><small>Insert Facebook Page Plugin embed code here</small></div>
+          <!-- Replace with: <div class="fb-page" data-href="https://www.facebook.com/..." ...></div> -->
+        </div>
+        <div class="embed-placeholder">
+          <div class="embed-placeholder__icon">📸</div>
+          <div class="embed-placeholder__text">Instagram Feed<br><small>Insert Instagram embed or LightWidget code here</small></div>
+          <!-- Replace with an Instagram embed or third-party widget like LightWidget -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== NEXT EVENTS ===================== -->
+<section aria-label="Upcoming events">
+  <div class="section">
+    <div class="events-grid">
+      <div class="observe-fade">
+        <div class="section-label">Diary Dates</div>
+        <h2 class="section-title">2026 Season</h2>
+        <p class="section-body">The museum opens on the last Sunday of each month, April to October, 10am–4pm. We also hold special evening events and educational visits throughout the year.</p>
+        <br>
+        <a href="pages/events.html" class="btn btn--primary" style="margin-top:0.5rem;">Full Events Calendar</a>
+      </div>
+
+      <div class="observe-fade">
+        <div class="events-list">
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="event-date__day">31</span>
+              <span class="event-date__mon">May</span>
+            </div>
+            <div class="event-info">
+              <div class="event-info__type">Open Day</div>
+              <div class="event-info__name">Museum Open Day</div>
+              <div class="event-info__time">10am – 4pm · Free Entry</div>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="event-date__day">27</span>
+              <span class="event-date__mon">Jun</span>
+            </div>
+            <div class="event-info">
+              <div class="event-info__type">Evening Event</div>
+              <div class="event-info__name">Deluxe Tuxedo + Guest DJ Slimboy</div>
+              <div class="event-info__time">Evening · Tickets Required</div>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="event-date__day">28</span>
+              <span class="event-date__mon">Jun</span>
+            </div>
+            <div class="event-info">
+              <div class="event-info__type">Special Event</div>
+              <div class="event-info__name">Americana Day</div>
+              <div class="event-info__time">10am – 4pm · Family Friendly</div>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="event-date__day">26</span>
+              <span class="event-date__mon">Jul</span>
+            </div>
+            <div class="event-info">
+              <div class="event-info__type">Open Day</div>
+              <div class="event-info__name">Museum Open Day</div>
+              <div class="event-info__time">10am – 4pm · Free Entry</div>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="event-date__day">26</span>
+              <span class="event-date__mon">Sep</span>
+            </div>
+            <div class="event-info">
+              <div class="event-info__type">Evening Event</div>
+              <div class="event-info__name">Noelle Vaughn &amp; Her Flaming Hearts</div>
+              <div class="event-info__time">Evening · Tickets Required</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== PHOTO GALLERY PREVIEW ===================== -->
+<section aria-label="Photo gallery preview" style="background:var(--od-dark); padding: 5rem 0;">
+  <div style="max-width:var(--max-w); margin:0 auto; padding:0 2rem;">
+    <div class="observe-fade" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <div class="section-label" style="color:var(--gold);">Photography</div>
+        <h2 class="section-title" style="color:var(--white); margin-bottom:0;">A Place Worth Seeing</h2>
+      </div>
+      <a href="pages/gallery.html" class="btn btn--outline">View Full Gallery</a>
+    </div>
+  </div>
+
+  <!-- Gallery mosaic — add real images by setting src on .gallery-cell img, or replacing placeholders -->
+  <div class="gallery-mosaic" style="max-width:var(--max-w); margin:0 auto; padding:0 2rem;" aria-label="Photo gallery">
+    <div class="gallery-cell" data-lightbox="">
+      <div class="gallery-cell__placeholder">📷<br><small style="font-family:var(--font-label); font-size:10px; letter-spacing:0.2em;">ADD PHOTO</small></div>
+    </div>
+    <div class="gallery-cell" data-lightbox="">
+      <div class="gallery-cell__placeholder">📷</div>
+    </div>
+    <div class="gallery-cell" data-lightbox="">
+      <div class="gallery-cell__placeholder">📷</div>
+    </div>
+    <div class="gallery-cell" data-lightbox="">
+      <div class="gallery-cell__placeholder">📷</div>
+    </div>
+    <div class="gallery-cell" data-lightbox="">
+      <div class="gallery-cell__placeholder">📷</div>
+    </div>
+    <div class="gallery-cell" data-lightbox="">
+      <div class="gallery-cell__placeholder">📷</div>
+    </div>
+    <div class="gallery-cell" data-lightbox="">
+      <div class="gallery-cell__placeholder">📷</div>
+    </div>
+    <div class="gallery-cell" data-lightbox="">
+      <div class="gallery-cell__placeholder">📷</div>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:1rem; font-family:var(--font-label); font-size:11px; letter-spacing:0.15em; color:var(--khaki);">
+    Place your photos in <code style="color:var(--gold);">images/</code> and update the gallery cells above
+  </p>
+</section>
+
+
+<!-- ===================== CTA BAND ===================== -->
+<section class="cta-band observe-fade" aria-label="Support us">
+  <div class="section-label">Registered Charity No. 1119769</div>
+  <h2 class="section-title">Help Keep This History Alive</h2>
+  <p>The Red Feather Club is run entirely by volunteers. Your support goes directly to preserving these extraordinary buildings and the memory of the men of the 95th.</p>
+  <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="pages/support.html" class="btn btn--outline">Donate or Become a Member</a>
+    <a href="https://empireclothingstore.com/95th-bg-heritage-museum/" target="_blank" rel="noopener" class="btn btn--outline">Shop Official Merch</a>
+  </div>
+</section>
+
+
+<!-- ===================== VISIT INFO ===================== -->
+<div class="visit-grid observe-fade">
+  <div class="visit-card">
+    <div class="visit-card__icon">📍</div>
+    <div class="visit-card__title">Location</div>
+    <div class="visit-card__body">
+      <strong>Horham Road, Denham</strong><br>
+      Eye, Suffolk, IP21 5DG<br><br>
+      <a href="pages/contact.html" style="color:var(--red); font-family:var(--font-label); font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Get Directions →</a>
+    </div>
+  </div>
+  <div class="visit-card">
+    <div class="visit-card__icon">🕙</div>
+    <div class="visit-card__title">Opening Times</div>
+    <div class="visit-card__body">
+      <strong>Last Sunday of the month</strong><br>
+      April – October<br>
+      10am – 4pm<br><br>
+      Plus special evening events — see the Events page for details.
+    </div>
+  </div>
+  <div class="visit-card">
+    <div class="visit-card__icon">🎓</div>
+    <div class="visit-card__title">School Visits</div>
+    <div class="visit-card__body">
+      We welcome school and educational group visits throughout the year, including during the week. Contact us to arrange a tailored visit.
+    </div>
+  </div>
+  <div class="visit-card">
+    <div class="visit-card__icon">✉️</div>
+    <div class="visit-card__title">Get in Touch</div>
+    <div class="visit-card__body">
+      <a href="pages/contact.html" style="color:var(--red); font-family:var(--font-label); font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Contact Form →</a><br><br>
+      Or follow us on Facebook and Instagram for the latest news and updates from the museum.
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" aria-label="Site footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand-name">Red Feather Club</div>
+      <div class="footer__brand-sub">95th Bomb Group Heritage Association</div>
+      <p class="footer__brand-desc">A living museum and monument to the men of the 95th Bomb Group, Eighth Air Force — the only group to receive the Distinguished Unit Citation three times. Operated by volunteers from a faithfully restored site at Horham, Suffolk.</p>
+      <div class="footer__social">
+        <a class="footer__social-btn" href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--khaki)"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a class="footer__social-btn" href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--khaki)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="var(--khaki)"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__col-title">Explore</div>
+      <ul class="footer__links">
+        <li><a href="pages/history.html">Our Past</a></li>
+        <li><a href="pages/museum.html">The Museum</a></li>
+        <li><a href="pages/events.html">Events &amp; Open Days</a></li>
+        <li><a href="pages/gallery.html">Gallery</a></li>
+        <li><a href="pages/museum.html#school">School Visits</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Information</div>
+      <ul class="footer__links">
+        <li><a href="pages/contact.html">Contact &amp; Find Us</a></li>
+        <li><a href="pages/support.html">Support Us</a></li>
+        <li><a href="https://empireclothingstore.com/95th-bg-heritage-museum/" target="_blank" rel="noopener">Official Merch Store</a></li>
+        <li><a href="https://95thbgdb.com/" target="_blank" rel="noopener">Personnel Database</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Connect</div>
+      <ul class="footer__links">
+        <li><a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>© 2026 95th Bomb Group Heritage Association · <span class="footer__charity">Registered Charity No. 1119769</span></p>
+    <p>Horham Road, Denham, Eye, IP21 5DG</p>
+    <p>Any unauthorised reproduction constitutes an infringement of copyright.</p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+  <button class="lightbox__close" aria-label="Close">✕</button>
+  <img id="lightbox-img" class="lightbox__img" src="" alt="Gallery image" />
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

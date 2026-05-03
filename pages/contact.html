@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Find Us — 95th Bomb Group Heritage · Red Feather Club</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block; margin-bottom: 0.4rem;
+      font-family: var(--font-label); font-size: 11px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--khaki);
+    }
+    .form-input, .form-textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid rgba(139,125,94,0.3);
+      background: var(--white); color: var(--ink);
+      font-family: var(--font-body); font-size: 0.9rem;
+      border-radius: 2px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+    .form-textarea { min-height: 140px; resize: vertical; }
+    .map-embed {
+      width: 100%; border: 0;
+      aspect-ratio: 4/3; border-radius: 4px;
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+    @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav__logo" href="../index.html">
+    <div class="nav__emblem"><div class="nav__emblem-placeholder">95<br>BG</div></div>
+    <div class="nav__title">Red Feather Club<span>95th Bomb Group Heritage</span></div>
+  </a>
+  <ul class="nav__links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="history.html">Our Past</a></li>
+    <li><a href="museum.html">The Museum</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="active">Find Us</a></li>
+    <li><a href="support.html" class="nav__cta">Support Us</a></li>
+  </ul>
+  <button class="nav__burger"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav__mobile">
+  <a href="../index.html">Home</a><a href="history.html">Our Past</a><a href="museum.html">The Museum</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Find Us</a><a href="support.html">Support Us</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="section-label">Horham, Suffolk</div>
+    <h1 class="section-title">Contact &amp; Find Us</h1>
+    <p class="section-body">The Red Feather Club is located on Horham Road, Denham, Eye, Suffolk. Come and visit us on one of our open days, or get in touch with any questions.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label observe-fade">Send a Message</div>
+      <h2 class="section-title observe-fade">Get in Touch</h2>
+
+      <!-- Contact form — works as-is for mailto: or connect to Formspree/Netlify Forms for S3 hosting -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="observe-fade">
+        <!-- Tip: Sign up at formspree.io (free tier), replace YOUR_FORM_ID with your ID for a working form on S3 -->
+        <div class="form-group">
+          <label class="form-label" for="name">Your Name</label>
+          <input class="form-input" type="text" id="name" name="name" required placeholder="e.g. John Smith">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject</label>
+          <input class="form-input" type="text" id="subject" name="subject" placeholder="e.g. School Visit Enquiry">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" required placeholder="Your message…"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%;">Send Message</button>
+        <p style="font-family:var(--font-label); font-size:11px; color:var(--khaki); margin-top:0.75rem; letter-spacing:0.05em;">
+          Alternatively, follow us on <a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank" style="color:var(--red);">Facebook</a> or <a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank" style="color:var(--red);">Instagram</a> to send a message directly.
+        </p>
+      </form>
+    </div>
+
+    <div>
+      <div class="section-label observe-fade">Location</div>
+      <h2 class="section-title observe-fade">Find Us</h2>
+
+      <div class="observe-fade" style="margin-bottom:2rem;">
+        <div class="visit-grid" style="gap:1.5px; background:rgba(139,125,94,0.2);">
+          <div class="visit-card" style="padding:1.5rem;">
+            <div class="visit-card__title">Address</div>
+            <div class="visit-card__body">
+              <strong>Horham Road, Denham</strong><br>
+              Eye, Suffolk<br>IP21 5DG
+            </div>
+          </div>
+          <div class="visit-card" style="padding:1.5rem;">
+            <div class="visit-card__title">Opening Hours</div>
+            <div class="visit-card__body">Last Sunday of the month<br><strong>10am – 4pm</strong><br>April – October</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Maps embed — replace with actual embed code from maps.google.com -->
+      <div class="observe-fade">
+        <iframe
+          class="map-embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2447.0!2d1.275!3d52.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDIxJzAwLjAiTiAxwrAxNiczMC4wIkU!5e0!3m2!1sen!2suk!4v1234567890"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing location of the Red Feather Club, Horham, Suffolk"
+        ></iframe>
+        <p style="font-family:var(--font-label); font-size:11px; color:var(--khaki); margin-top:0.5rem; letter-spacing:0.05em;">
+          Tip: Replace the iframe src with the embed URL from <a href="https://maps.google.com" target="_blank" style="color:var(--red);">Google Maps</a> for the correct location.
+        </p>
+      </div>
+
+      <div style="margin-top:1.5rem; font-size:0.9rem; color:var(--khaki); line-height:1.7;" class="observe-fade">
+        <strong style="color:var(--ink);">By Road:</strong> The museum is located in Denham, near Eye in Suffolk. Follow signs from Eye on the B1117. Car parking is available on site.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div><div class="footer__brand-name">Red Feather Club</div><div class="footer__brand-sub">95th Bomb Group Heritage Association</div></div>
+    <div><div class="footer__col-title">Explore</div><ul class="footer__links"><li><a href="history.html">Our Past</a></li><li><a href="museum.html">The Museum</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div><div class="footer__col-title">Information</div><ul class="footer__links"><li><a href="contact.html">Contact</a></li><li><a href="support.html">Support Us</a></li></ul></div>
+    <div><div class="footer__col-title">Connect</div><ul class="footer__links"><li><a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank">Facebook</a></li><li><a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank">Instagram</a></li></ul></div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 95th Bomb Group Heritage Association · <span class="footer__charity">Registered Charity No. 1119769</span></p>
+    <p>Horham Road, Denham, Eye, IP21 5DG</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

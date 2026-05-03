@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Museum — 95th Bomb Group Heritage · Red Feather Club</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .museum-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    .feature-list { list-style:none; display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem; }
+    .feature-list li {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding-bottom:1rem; border-bottom:1px solid rgba(139,125,94,0.15);
+    }
+    .feature-list__icon { font-size:1.4rem; flex-shrink:0; margin-top:0.1rem; }
+    .feature-list__title { font-family:var(--font-display); font-weight:700; font-size:0.95rem; margin-bottom:0.2rem; }
+    .feature-list__desc { font-size:0.875rem; color:var(--khaki); line-height:1.65; }
+    .photo-full {
+      aspect-ratio:16/10; background:var(--aged);
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-label); font-size:11px; letter-spacing:0.2em;
+      color:var(--khaki); text-align:center; padding:1rem;
+      margin-bottom:1.5rem;
+    }
+    @media (max-width:800px) { .museum-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav__logo" href="../index.html">
+    <div class="nav__emblem"><div class="nav__emblem-placeholder">95<br>BG</div></div>
+    <div class="nav__title">Red Feather Club<span>95th Bomb Group Heritage</span></div>
+  </a>
+  <ul class="nav__links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="history.html">Our Past</a></li>
+    <li><a href="museum.html" class="active">The Museum</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Find Us</a></li>
+    <li><a href="support.html" class="nav__cta">Support Us</a></li>
+  </ul>
+  <button class="nav__burger"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav__mobile">
+  <a href="../index.html">Home</a><a href="history.html">Our Past</a><a href="museum.html">The Museum</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="contact.html">Find Us</a><a href="support.html">Support Us</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="section-label">Horham, Suffolk</div>
+    <h1 class="section-title">The Red Feather Club</h1>
+    <p class="section-body">Step inside a faithfully restored 1940s NCO's social club. A living museum unlike any other — visitors say it's like going back in time.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="museum-grid">
+    <div class="observe-fade">
+      <!-- Replace placeholder with real image -->
+      <div class="photo-full">ADD MAIN MUSEUM PHOTO HERE<br><small>images/museum/exterior.jpg</small></div>
+      <div class="photo-full" style="aspect-ratio:4/3;">ADD INTERIOR PHOTO HERE<br><small>images/museum/interior.jpg</small></div>
+    </div>
+    <div>
+      <div class="section-label observe-fade">The Experience</div>
+      <h2 class="section-title observe-fade">A Living Museum</h2>
+      <p class="observe-fade" style="color:var(--khaki); line-height:1.8; margin-bottom:2rem;">The 95th Bomb Group Heritage Association operates the museum from a number of faithfully restored buildings on one of the communal sites of the original 95th airbase. The centrepiece is the NCO's social club — the Red Feather Club itself — restored to its 1940s appearance and filled with authentic artefacts, memorabilia, and stories.</p>
+
+      <ul class="feature-list observe-fade">
+        <li>
+          <div class="feature-list__icon">🪖</div>
+          <div>
+            <div class="feature-list__title">Restored Buildings</div>
+            <div class="feature-list__desc">Faithfully restored wartime structures, including the original NCO's social club, exactly as they would have appeared during the war years.</div>
+          </div>
+        </li>
+        <li>
+          <div class="feature-list__icon">🎖️</div>
+          <div>
+            <div class="feature-list__title">Authentic Artefacts</div>
+            <div class="feature-list__desc">Uniforms, equipment, personal items, photographs and documents — many donated by veterans and their families.</div>
+          </div>
+        </li>
+        <li>
+          <div class="feature-list__icon">🎓</div>
+          <div id="school">
+            <div class="feature-list__title">Educational Visits</div>
+            <div class="feature-list__desc">We welcome schools and educational groups throughout the year. Our experienced volunteers bring the history to life with guided tours and first-hand accounts.</div>
+          </div>
+        </li>
+        <li>
+          <div class="feature-list__icon">🌐</div>
+          <div>
+            <div class="feature-list__title">Virtual Museum Tour</div>
+            <div class="feature-list__desc">Can't visit in person? Explore the museum from home with our virtual tour — a 360° walkthrough of the restored buildings.</div>
+          </div>
+        </li>
+      </ul>
+
+      <div style="margin-top:2rem;" class="observe-fade">
+        <a href="events.html" class="btn btn--primary">Plan Your Visit</a>
+        <a href="contact.html" style="margin-left:1rem;" class="btn btn--outline" style="border-color:var(--khaki); color:var(--ink);">Book a School Visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="memorials" style="background:var(--ink); padding:5rem 0;">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="observe-fade">
+      <div class="section-label" style="color:var(--gold);">Remembrance</div>
+      <h2 class="section-title" style="color:var(--white);">The Memorials</h2>
+      <p style="color:rgba(232,217,192,0.65); max-width:640px; line-height:1.8; margin-bottom:2rem;">The site at Horham includes a number of permanent memorials to the men of the 95th Bomb Group and the wider Eighth Air Force. These memorials provide a place of quiet reflection, remembrance, and gratitude.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:2px; background:rgba(139,125,94,0.15);">
+        <div style="background:rgba(255,255,255,0.04); padding:1.5rem;">
+          <div style="font-family:var(--font-display); font-size:1rem; font-weight:700; color:var(--parchment); margin-bottom:0.4rem;">The Roll of Honour</div>
+          <p style="font-size:0.85rem; color:var(--khaki); line-height:1.65;">All those who gave their lives in service with the 95th are remembered here.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04); padding:1.5rem;">
+          <div style="font-family:var(--font-display); font-size:1rem; font-weight:700; color:var(--parchment); margin-bottom:0.4rem;">The Memorial Garden</div>
+          <p style="font-size:0.85rem; color:var(--khaki); line-height:1.65;">A peaceful garden of remembrance at the heart of the site, beautifully maintained by our volunteers.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04); padding:1.5rem;">
+          <div style="font-family:var(--font-display); font-size:1rem; font-weight:700; color:var(--parchment); margin-bottom:0.4rem;">Permanent Plaques</div>
+          <p style="font-size:0.85rem; color:var(--khaki); line-height:1.65;">Individual and squadron memorial plaques, many placed by veterans' families.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cta-band observe-fade">
+  <div class="section-label">Free Entry</div>
+  <h2 class="section-title">Open Days — Last Sunday of Each Month</h2>
+  <p>No booking required. We'd love to see you. April through October, 10am to 4pm.</p>
+  <a href="events.html" class="btn btn--outline">See All Events</a>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div><div class="footer__brand-name">Red Feather Club</div><div class="footer__brand-sub">95th Bomb Group Heritage Association</div></div>
+    <div><div class="footer__col-title">Explore</div><ul class="footer__links"><li><a href="history.html">Our Past</a></li><li><a href="museum.html">The Museum</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div><div class="footer__col-title">Information</div><ul class="footer__links"><li><a href="contact.html">Contact</a></li><li><a href="support.html">Support Us</a></li></ul></div>
+    <div><div class="footer__col-title">Connect</div><ul class="footer__links"><li><a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank">Facebook</a></li><li><a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank">Instagram</a></li></ul></div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 95th Bomb Group Heritage Association · <span class="footer__charity">Registered Charity No. 1119769</span></p>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
