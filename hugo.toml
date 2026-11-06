@@ -11,13 +11,14 @@ disableKinds = ["taxonomy", "term", "section", "rss"]
   [module.hugoVersion]
     min = "0.146.0"
   # css/, js/ and images/ stay at the repo root (the WordPress theme mirrors
-  # css/style.css from there) and are published unchanged.
+  # css/style.css from there). CSS and JS are assets, published with a content
+  # hash in the file name (see baseof.html); images are published unchanged.
   [[module.mounts]]
     source = "css"
-    target = "static/css"
+    target = "assets/css"
   [[module.mounts]]
     source = "js"
-    target = "static/js"
+    target = "assets/js"
   [[module.mounts]]
     source = "images"
     target = "static/images"

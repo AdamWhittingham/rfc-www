@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} — 95th Bomb Group Heritage Association · Red Feather Club{{ end }}</title>
   <meta name="description" content="{{ .Description | default site.Params.description }}" />
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
-  {{- range .Params.styles }}
-  <link rel="stylesheet" href="{{ . | relURL }}" />
+  {{- /* Stylesheets and scripts get a content hash in their file name, so a
+         browser fetches the new copy whenever the file changes. */}}
+  {{- range slice "css/style.css" | append .Params.styles }}
+  {{- with resources.Get . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />
+  {{- end }}
   {{- end }}
 </head>
 <body>
@@ -24,6 +27,8 @@
   <img id="lightbox-img" class="lightbox__img" src="" alt="Gallery image" />
 </div>
 
-<script src="{{ "js/main.js" | relURL }}"></script>
+{{- with resources.Get "js/main.js" | minify | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+{{- end }}
 </body>
 </html>
