@@ -1,0 +1,31 @@
+# Fallback posts for the homepage "Latest News" tabs, used when the build
+# can't reach the Graph API (no RFC_META_TOKEN set, or the request failed).
+# When the API is configured these are ignored.
+
+facebook:
+  - date: 2026-04-28
+    icon: 🛩️
+    text: What a wonderful open day yesterday! Fantastic turnout with visitors from as far afield as Texas to see the restored buildings and share memories of the 95th. Thank you to everyone who came.
+    link: https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/
+  - date: 2026-04-19
+    icon: 🏛️
+    text: We're thrilled to confirm the full 2026 event season! Americana Day returns on 28th June, and we have some brilliant evening dances lined up. Full details on the Events page.
+    link: https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/
+  - date: 2026-04-10
+    icon: 📸
+    text: A school group from Framlingham visited this week. It's always so rewarding to see young people engage with this history. The children were fantastic — so many great questions!
+    link: https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/
+
+instagram:
+  - date: 2026-04-26
+    icon: 📷
+    text: "Open day sunshine ☀️ Beautiful day at Horham. The memorial garden was looking gorgeous. Come and see us on 31st May for our next open day! #95thBG #USAAF #Horham"
+    link: https://www.instagram.com/95thbombgroupheritage/
+  - date: 2026-04-15
+    icon: ✈️
+    text: "Archive photograph of a 95th B-17 over the English countryside, ca. 1944. These men were barely in their twenties. Never forgotten. #WW2 #EighthAirForce #B17"
+    link: https://www.instagram.com/95thbombgroupheritage/
+  - date: 2026-03-27
+    icon: 🎵
+    text: Preparations are underway for our April dance! The Red Feather Club at night is something very special. Swing dancing, 1940s sounds, fantastic people. Tickets still available.
+    link: https://www.instagram.com/95thbombgroupheritage/

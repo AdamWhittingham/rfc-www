@@ -1,0 +1,65 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="section-label">Horham, Suffolk</div>
+    <h1 class="section-title">Contact &amp; Find Us</h1>
+    <p class="section-body">The Red Feather Club is located on Horham Road, Denham, Eye, Suffolk. Come and visit us on one of our open days, or get in touch with any questions.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label observe-fade">Send a Message</div>
+      <h2 class="section-title observe-fade">Get in Touch</h2>
+
+          <form action="mailto:{{ site.Params.email }}" method="GET" enctype="text/plain">
+            <a href="mailto:{{ site.Params.email }}" class="btn btn--primary" style="width:100%; text-align:center; display:block;">
+              Send us an email
+            </a>
+            <p style="font-family:var(--font-label); ">
+              This will open your default email app. Alternatively, reach us directly on 
+              <a href="{{ site.Params.social.facebook.url }}" target="_blank" style="color:var(--red);">Facebook</a> or 
+              <a href="{{ site.Params.social.instagram.url }}" target="_blank" style="color:var(--red);">Instagram</a>.
+            </p>
+          </form>
+    </div>
+
+    <div>
+      <div class="section-label observe-fade">Location</div>
+      <h2 class="section-title observe-fade">Find Us</h2>
+
+      <div class="observe-fade" style="margin-bottom:2rem;">
+        <div class="visit-grid" style="gap:1.5px; background:rgba(139,125,94,0.2);">
+          <div class="visit-card" style="padding:1.5rem;">
+            <div class="visit-card__title">Address</div>
+            <div class="visit-card__body">
+              <strong>Horham Road, Denham</strong><br>
+              Eye, Suffolk<br>IP21 5DG
+            </div>
+          </div>
+          <div class="visit-card" style="padding:1.5rem;">
+            <div class="visit-card__title">Opening Hours</div>
+            <div class="visit-card__body">Last Sunday of the month<br><strong>10am – 4pm</strong><br>April – October</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="observe-fade">
+        <iframe
+          class="map-embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2453.8!2d1.210378!3d52.311172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d99ab4b2f01213%3A0x55197fffe23241ce!2sThe%20Red%20Feather%20Club%2095th%20Bomb%20Group%20Museum!5e0!3m2!1sen!2suk!4v1714900000000!5m2!1sen!2suk"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="The Red Feather Club, 95th Bomb Group Museum — Horham Road, Denham, Eye, Suffolk IP21 5DG"
+        ></iframe>
+      </div>
+
+      <div style="margin-top:1.5rem; font-size:0.9rem; color:var(--khaki); line-height:1.7;" class="observe-fade">
+        <strong style="color:var(--ink);">By Road:</strong> The museum is located in Denham, near Eye in Suffolk. Follow signs from Eye on the B1117. Car parking is available on site.
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

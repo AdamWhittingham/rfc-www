@@ -1,0 +1,71 @@
+# Photos for the Gallery page. The first eight also fill the homepage mosaic.
+#
+#   src       image path under images/ (e.g. /images/gallery/exterior.jpg);
+#             leave it out to show a placeholder until a photo is added
+#   full      optional larger image for the lightbox (defaults to src)
+#   alt       description of the photo
+#   caption   optional caption shown on hover
+#   category  site | museum | events | historical (the filter buttons)
+#   icon, label, height   placeholder appearance while src is empty
+
+categories:
+  - id: site
+    name: The Site
+  - id: museum
+    name: Museum Interior
+  - id: events
+    name: Events
+  - id: historical
+    name: Historical
+
+photos:
+  - category: site
+    caption: The Red Feather Club — Horham
+    icon: 🏛️
+    label: The Red Feather Club exterior
+    height: 280
+
+  - category: museum
+    caption: Inside the Red Feather Club
+    icon: 🎖️
+    label: Museum interior
+    height: 200
+
+  - category: historical
+    caption: B-17 of the 95th Bomb Group, ca. 1944
+    icon: ✈️
+    label: Historical photograph
+    height: 240
+
+  - category: events
+    caption: Evening dance at the Red Feather Club
+    icon: 🎵
+    label: Event photograph
+    height: 220
+
+  - category: site
+    caption: The Memorial Garden, Horham
+    icon: 🌿
+    label: Memorial garden
+    height: 300
+
+  - category: museum
+    icon: 📸
+    label: Museum display
+    height: 200
+
+  - category: historical
+    icon: 👨‍✈️
+    label: Crew photograph
+    height: 260
+
+  - category: events
+    caption: Americana Day 2025
+    icon: 🎪
+    label: Americana Day
+    height: 220
+
+  - category: site
+    icon: 📷
+    label: Site photograph
+    height: 200

@@ -1,0 +1,2 @@
+{{- $labels := dict "open" "Open Day" "evening" "Evening Event" "special" "Special Event" -}}
+{{- return (.label | default (index $labels .tag)) -}}

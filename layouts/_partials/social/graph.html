@@ -1,0 +1,19 @@
+{{- /*
+  Fetches a Graph API path and returns the decoded JSON, or nil on failure.
+  The token goes in a header rather than the query string so that it never
+  appears in error messages or build logs.
+*/ -}}
+{{- $result := dict -}}
+{{- $token := os.Getenv "RFC_META_TOKEN" -}}
+{{- if $token -}}
+  {{- $url := printf "%s/%s" site.Params.social.graphURL . -}}
+  {{- $opts := dict "headers" (dict "Authorization" (printf "Bearer %s" $token)) -}}
+  {{- with try (resources.GetRemote $url $opts) -}}
+    {{- with .Err -}}
+      {{- warnf "social: Graph API request failed, using data/social.yaml instead: %s" . -}}
+    {{- else with .Value -}}
+      {{- $result = . | transform.Unmarshal -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

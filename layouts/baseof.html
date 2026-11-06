@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} — 95th Bomb Group Heritage Association · Red Feather Club{{ end }}</title>
+  <meta name="description" content="{{ .Description | default site.Params.description }}" />
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
+  {{- range .Params.styles }}
+  <link rel="stylesheet" href="{{ . | relURL }}" />
+  {{- end }}
+</head>
+<body>
+
+{{ partial "nav.html" . }}
+
+{{ block "main" . }}{{ end }}
+
+{{ partial "footer.html" . }}
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+  <button class="lightbox__close" aria-label="Close">✕</button>
+  <img id="lightbox-img" class="lightbox__img" src="" alt="Gallery image" />
+</div>
+
+<script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

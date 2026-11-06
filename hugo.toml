@@ -1,0 +1,83 @@
+baseURL = "https://95thbg-horham.com/"
+locale = "en-GB"
+title = "Red Feather Club"
+
+# Keep the URLs the flat-file site used (/index.html, /pages/events.html, ...)
+# so existing links and bookmarks still resolve.
+uglyURLs = true
+disableKinds = ["taxonomy", "term", "section", "rss"]
+
+[module]
+  [module.hugoVersion]
+    min = "0.146.0"
+  # css/, js/ and images/ stay at the repo root (the WordPress theme mirrors
+  # css/style.css from there) and are published unchanged.
+  [[module.mounts]]
+    source = "css"
+    target = "static/css"
+  [[module.mounts]]
+    source = "js"
+    target = "static/js"
+  [[module.mounts]]
+    source = "images"
+    target = "static/images"
+
+[security.funcs]
+  getenv = ["^HUGO_", "^CI$", "^RFC_"]
+
+# Social posts are fetched at build time; don't let a local cache go stale.
+[caches.getresource]
+  maxAge = "1h"
+
+[params]
+  description = "The official UK home of the 95th Bomb Group Heritage Association. A living museum and monument to the only Eighth Air Force Bomb Group to receive the Distinguished Unit Citation three times."
+  charity = "1119769"
+  address = "Horham Road, Denham, Eye, IP21 5DG"
+  merchURL = "https://empireclothingstore.com/95th-bg-heritage-museum/"
+  databaseURL = "https://95thbgdb.com/"
+  email = "enquiries@95thbg-horham.com"
+
+  # Facebook and Instagram. Posts are pulled from the Graph API when the
+  # RFC_META_TOKEN environment variable holds a Page access token; without it
+  # (or if the API call fails) the build falls back to data/social.yaml.
+  [params.social]
+    graphURL = "https://graph.facebook.com/v23.0"
+    posts = 3
+    [params.social.facebook]
+      url = "https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/"
+      pageID = "61554777124268"
+    [params.social.instagram]
+      url = "https://www.instagram.com/95thbombgroupheritage/"
+      # Looked up from the Facebook Page's linked account when left empty.
+      userID = ""
+
+[[menus.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+[[menus.main]]
+  name = "Our Past"
+  pageRef = "/pages/history"
+  weight = 20
+[[menus.main]]
+  name = "The Museum"
+  pageRef = "/pages/museum"
+  weight = 30
+[[menus.main]]
+  name = "Events"
+  pageRef = "/pages/events"
+  weight = 40
+[[menus.main]]
+  name = "Gallery"
+  pageRef = "/pages/gallery"
+  weight = 50
+[[menus.main]]
+  name = "Find Us"
+  pageRef = "/pages/contact"
+  weight = 60
+[[menus.main]]
+  name = "Support Us"
+  pageRef = "/pages/support"
+  weight = 70
+  [menus.main.params]
+    cta = true

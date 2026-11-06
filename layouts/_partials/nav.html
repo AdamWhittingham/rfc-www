@@ -1,0 +1,30 @@
+<!-- ===================== NAV ===================== -->
+<nav class="nav" aria-label="Main navigation">
+  <a class="nav__logo" href="{{ site.Home.RelPermalink }}">
+    <div class="nav__emblem">
+      <!-- Replace with the real logo image -->
+      <div class="nav__emblem-placeholder">95<br>BG</div>
+    </div>
+    <div class="nav__title">
+      Red Feather Club
+      <span>95th Bomb Group Heritage Association</span>
+    </div>
+  </a>
+  <ul class="nav__links" role="list">
+    {{- range site.Menus.main }}
+    {{- $class := slice }}
+    {{- if .Params.cta }}{{ $class = $class | append "nav__cta" }}{{ end }}
+    {{- if $.IsMenuCurrent "main" . }}{{ $class = $class | append "active" }}{{ end }}
+    <li><a href="{{ .URL }}"{{ with $class }} class="{{ delimit . " " }}"{{ end }}>{{ .Name }}</a></li>
+    {{- end }}
+  </ul>
+  <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<nav class="nav__mobile" aria-label="Mobile navigation">
+  {{- range site.Menus.main }}
+  <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a>
+  {{- end }}
+</nav>

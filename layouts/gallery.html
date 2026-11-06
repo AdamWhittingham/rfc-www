@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="section-label">Photography</div>
+    <h1 class="section-title">Gallery</h1>
+    <p class="section-body">Photographs of the site, the museum, events, and our history.</p>
+  </div>
+</div>
+
+<section class="section">
+
+  <div class="gallery-filter observe-fade">
+    <button class="filter-btn active" data-filter="all">All</button>
+    {{- range hugo.Data.gallery.categories }}
+    <button class="filter-btn" data-filter="{{ .id }}">{{ .name }}</button>
+    {{- end }}
+  </div>
+
+  <!-- Photos come from data/gallery.yaml -->
+  <div class="photo-grid observe-fade">
+    {{- range hugo.Data.gallery.photos }}
+    {{- $photo := . }}
+
+    <div class="photo-item" data-category="{{ .category }}" data-lightbox="{{ with .full | default .src }}{{ . | relURL }}{{ end }}">
+      {{- with .src }}
+      <img src="{{ . | relURL }}" alt="{{ $photo.alt }}" loading="lazy">
+      {{- else }}
+      <div class="photo-placeholder" style="min-height:{{ .height | default 200 }}px;">
+        <div class="photo-placeholder__icon">{{ .icon | default "📷" }}</div>
+        <div class="photo-placeholder__label">{{ .label }}<br>Replace with real photo</div>
+      </div>
+      {{- end }}
+      {{- with .caption }}
+      <span class="photo-caption">{{ . }}</span>
+      {{- end }}
+    </div>
+    {{- end }}
+
+  </div>
+
+  <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--aged); border-radius:4px; font-family: var(--font-label); font-size: 13px; color: var(--khaki); line-height:1.7;" class="observe-fade">
+    <strong style="color:var(--ink);">Adding Photos:</strong>
+    Place JPG/WebP files in <code style="color:var(--red);">images/gallery/</code> and add an entry for each to <code>data/gallery.yaml</code> with its <code>src</code>, <code>alt</code>, <code>category</code> and an optional <code>caption</code>.
+    Recommended max width: 1600px. Use WebP for best performance on S3/CDN hosting.
+  </div>
+
+</section>
+{{ end }}

@@ -1,107 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Past — 95th Bomb Group Heritage Association · Red Feather Club</title>
-  <meta name="description" content="The history of the 95th Bomb Group — 334 missions, three Distinguished Unit Citations, and the first daylight raid on Berlin." />
-  <link rel="stylesheet" href="../css/style.css" />
-  <style>
-    .history-layout {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .stat-block {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1.5px; background: rgba(139,125,94,0.2);
-      margin: 3rem 0;
-    }
-
-    .stat-box {
-      background: var(--white); padding: 1.75rem;
-    }
-
-    .stat-box__num {
-      font-family: var(--font-display);
-      font-size: 2.5rem; font-weight: 900;
-      color: var(--red); line-height: 1; margin-bottom: 0.3rem;
-    }
-
-    .stat-box__label {
-      font-family: var(--font-label);
-      font-size: 11px; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--khaki);
-    }
-
-    .sidebar-card {
-      background: var(--white);
-      border-top: 3px solid var(--gold);
-      padding: 1.75rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 16px var(--shadow);
-    }
-
-    .sidebar-card__title {
-      font-family: var(--font-label);
-      font-weight: 700; font-size: 11px;
-      letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1rem;
-    }
-
-    .sidebar-card p { font-size: 0.88rem; color: var(--khaki); line-height: 1.7; margin-bottom: 0.75rem; }
-    .sidebar-card a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
-
-    .squadron-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1px; background: rgba(139,125,94,0.2);
-      margin-top: 1rem;
-    }
-
-    .squadron-box {
-      background: var(--white); padding: 1rem 1.25rem;
-      font-family: var(--font-label); font-size: 13px;
-    }
-
-    .squadron-box strong { display: block; color: var(--ink); font-weight: 700; }
-    .squadron-box span { color: var(--khaki); font-size: 11px; letter-spacing: 0.1em; }
-
-    @media (max-width: 900px) {
-      .history-layout { grid-template-columns: 1fr; }
-      .history-layout .sidebar { order: -1; }
-    }
-  </style>
-</head>
-<body>
-
-<nav class="nav">
-  <a class="nav__logo" href="../index.html">
-    <div class="nav__emblem"><div class="nav__emblem-placeholder">95<br>BG</div></div>
-    <div class="nav__title">Red Feather Club<span>95th Bomb Group Heritage Association</span></div>
-  </a>
-  <ul class="nav__links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="history.html" class="active">Our Past</a></li>
-    <li><a href="museum.html">The Museum</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html">Find Us</a></li>
-    <li><a href="support.html" class="nav__cta">Support Us</a></li>
-  </ul>
-  <button class="nav__burger"><span></span><span></span><span></span></button>
-</nav>
-<nav class="nav__mobile">
-  <a href="../index.html">Home</a>
-  <a href="history.html">Our Past</a>
-  <a href="museum.html">The Museum</a>
-  <a href="events.html">Events</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="contact.html">Find Us</a>
-  <a href="support.html">Support Us</a>
-</nav>
-
+{{ define "main" }}
 <div class="page-hero">
   <div class="page-hero__inner">
     <div class="section-label">1943 – 1945</div>
@@ -203,7 +100,7 @@
           <div style="aspect-ratio:4/3; background:var(--aged); display:flex; align-items:center; justify-content:center; color:var(--khaki); font-family:var(--font-label); font-size:11px; letter-spacing:0.2em; text-align:center; padding:1rem;">ADD PHOTO<br>HERE</div>
         </div>
         <p style="font-size:0.8rem; color:var(--khaki); margin-top:0.5rem; font-family:var(--font-label); font-size:11px; letter-spacing:0.1em;">
-          Example: <code>&lt;img src="../images/history/b17-formation.jpg" alt="B-17s in formation"&gt;</code>
+          Example: <code>&lt;img src="/images/history/b17-formation.jpg" alt="B-17s in formation"&gt;</code>
         </p>
       </div>
 
@@ -214,7 +111,7 @@
       <div class="sidebar-card observe-fade">
         <div class="sidebar-card__title">Personnel Database</div>
         <p>Looking for a specific crew member, aircraft, or photograph? Our American partners have built an excellent searchable database of 95th Bomb Group personnel and records.</p>
-        <a href="https://95thbgdb.com/" target="_blank" rel="noopener" class="btn btn--primary" style="font-size:12px; padding:0.65rem 1.25rem; display:block; text-align:center; margin-top:1rem;">
+        <a href="{{ site.Params.databaseURL }}" target="_blank" rel="noopener" class="btn btn--primary" style="font-size:12px; padding:0.65rem 1.25rem; display:block; text-align:center; margin-top:1rem;">
           Search the Database →
         </a>
       </div>
@@ -233,7 +130,7 @@
       <div class="sidebar-card observe-fade">
         <div class="sidebar-card__title">The Memorials</div>
         <p>A number of permanent memorials at Horham and beyond commemorate the men of the 95th. Visit us to pay your respects and learn more about those who served.</p>
-        <a href="museum.html#memorials" class="btn btn--outline" style="font-size:12px; padding:0.65rem 1.25rem; display:block; text-align:center; margin-top:1rem; border-color:var(--khaki); color:var(--ink);">See the Memorials →</a>
+        <a href="{{ relref . "/pages/museum#memorials" }}" class="btn btn--outline" style="font-size:12px; padding:0.65rem 1.25rem; display:block; text-align:center; margin-top:1rem; border-color:var(--khaki); color:var(--ink);">See the Memorials →</a>
       </div>
 
       <div class="sidebar-card observe-fade" style="background:var(--ink);">
@@ -246,22 +143,4 @@
     </aside>
   </div>
 </section>
-
-<footer class="footer">
-  <div class="footer__inner">
-    <div>
-      <div class="footer__brand-name">Red Feather Club</div>
-      <div class="footer__brand-sub">95th Bomb Group Heritage Association</div>
-    </div>
-    <div><div class="footer__col-title">Explore</div><ul class="footer__links"><li><a href="history.html">Our Past</a></li><li><a href="museum.html">The Museum</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
-    <div><div class="footer__col-title">Information</div><ul class="footer__links"><li><a href="contact.html">Contact</a></li><li><a href="support.html">Support Us</a></li></ul></div>
-    <div><div class="footer__col-title">Connect</div><ul class="footer__links"><li><a href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/" target="_blank">Facebook</a></li><li><a href="https://www.instagram.com/95thbombgroupheritage/" target="_blank">Instagram</a></li></ul></div>
-  </div>
-  <div class="footer__bottom">
-    <p>© 2026 95th Bomb Group Heritage Association · <span class="footer__charity">Registered Charity No. 1119769</span></p>
-  </div>
-</footer>
-
-<script src="../js/main.js"></script>
-</body>
-</html>
+{{ end }}

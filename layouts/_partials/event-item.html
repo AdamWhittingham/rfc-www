@@ -1,0 +1,12 @@
+{{- $date := time.AsTime .date }}
+<div class="event-item">
+  <div class="event-date">
+    <span class="event-date__day">{{ $date.Day }}</span>
+    <span class="event-date__mon">{{ $date.Format "Jan" }}</span>
+  </div>
+  <div class="event-info">
+    <div class="event-info__type">{{ partial "event-label.html" . }}</div>
+    <div class="event-info__name">{{ .name }}</div>
+    <div class="event-info__time">{{ .time }}</div>
+  </div>
+</div>

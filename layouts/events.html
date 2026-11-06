@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{- $social := site.Params.social }}
+<div class="page-hero">
+  <!-- Optional: <div class="page-hero__bg" style="background-image:url('/images/events-hero.jpg')"></div> -->
+  <div class="page-hero__inner">
+    <div class="section-label">2026 Season</div>
+    <h1 class="section-title">Forthcoming Events</h1>
+    <p class="section-body">Open days, evening dances, living history weekends and more. The Red Feather Club comes to life throughout the year — we'd love to see you.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="events-full">
+
+    <p style="background:rgba(200,146,58,0.08); border-left:3px solid var(--gold); padding:1rem 1.25rem; font-size:0.9rem; color:var(--khaki); margin-bottom:2rem;">
+      <strong style="color:var(--ink);">Booking:</strong> Open Days are free entry; no tickets required. Evening events require tickets; follow us on <a href="{{ $social.facebook.url }}" target="_blank" rel="noopener" style="color:var(--red);">Facebook</a> or <a href="{{ $social.instagram.url }}" target="_blank" rel="noopener" style="color:var(--red);">Instagram</a> for ticket announcements.
+    </p>
+
+    {{- range hugo.Data.events.groups }}
+    {{- $events := where hugo.Data.events.events "group" .id }}
+    {{- if $events }}
+
+    <h2 class="season-heading observe-fade">{{ .heading | safeHTML }}</h2>
+    {{- end }}
+    {{- range sort $events "date" }}
+    {{ partial "event-row.html" . }}
+    {{- end }}
+    {{- end }}
+
+    <div style="margin-top: 3rem; padding: 2rem; background: var(--aged); border-radius: 4px;" class="observe-fade">
+      <h3 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.75rem;">School &amp; Group Visits</h3>
+      <p style="font-size:0.9rem; color:var(--khaki); line-height:1.7; margin-bottom:1rem;">We offer tailored educational visits for schools and groups throughout the year, including weekdays. Our volunteers bring the history to life with first-hand accounts and guided tours of the restored buildings.</p>
+      <a href="{{ relref . "/pages/contact" }}" class="btn btn--primary">Enquire About a Visit</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-band observe-fade">
+  <div class="section-label">Stay Updated</div>
+  <h2 class="section-title">Follow Us for the Latest</h2>
+  <p>Ticket announcements, event updates, and behind-the-scenes from the museum — all on our social channels.</p>
+  <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="{{ $social.facebook.url }}" target="_blank" rel="noopener" class="btn btn--fb">Facebook</a>
+    <a href="{{ $social.instagram.url }}" target="_blank" rel="noopener" class="btn btn--ig">Instagram</a>
+  </div>
+</section>
+{{ end }}

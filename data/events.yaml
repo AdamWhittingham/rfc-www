@@ -1,0 +1,81 @@
+# Events shown on the Events page and (the next few upcoming) on the homepage.
+#
+#   date   YYYY-MM-DD
+#   group  which list on the Events page it appears under (see `groups`)
+#   tag    colour of the label: open | evening | special
+#   label  the label text (defaults to Open Day / Evening Event / Special Event)
+#   time   the line under the name
+#   desc   optional longer description (Events page only)
+
+groups:
+  - id: open
+    heading: "2026 Open Days<br/>10am to 4pm"
+  - id: evening
+    heading: "Evening Events"
+
+events:
+  - date: 2026-04-26
+    group: open
+    tag: open
+    name: Museum Open Day
+    time: 10am – 4pm · Free Entry · No booking required
+    desc: Explore the restored buildings, browse the collections, and meet our knowledgeable volunteers.
+
+  - date: 2026-05-31
+    group: open
+    tag: open
+    name: Museum Open Day
+    time: 10am – 4pm · Free Entry
+
+  - date: 2026-06-28
+    group: open
+    tag: special
+    name: Americana Day!
+    time: 10am – 4pm · Free Entry · Family Friendly
+    desc: Our popular annual Americana Day — American cars, music, food, costumes and more. A brilliant day for the whole family.
+
+  - date: 2026-07-26
+    group: open
+    tag: open
+    name: Museum Open Day
+    time: 10am – 4pm · Free Entry
+
+  - date: 2026-08-30
+    group: open
+    tag: open
+    name: Museum Open Day
+    time: 10am – 4pm · Free Entry
+
+  - date: 2026-09-27
+    group: open
+    tag: open
+    name: Museum Open Day
+    time: 10am – 4pm · Free Entry
+
+  - date: 2026-10-25
+    group: open
+    tag: open
+    name: Museum Open Day — Last of the Season
+    time: 10am – 4pm · Free Entry
+
+  - date: 2026-04-25
+    group: evening
+    tag: evening
+    label: Evening Dance
+    name: Hotcha Paul & The Head Honchos
+    time: "Evening · Guest DJ: The Melody Man · Tickets Required"
+    desc: An authentic 1940s evening in the Red Feather Club — swing dancing, great music, and an atmosphere like no other.
+
+  - date: 2026-06-27
+    group: evening
+    tag: evening
+    label: Evening Dance
+    name: Deluxe Tuxedo
+    time: "Evening · Guest DJ: Slimboy · Tickets Required"
+
+  - date: 2026-09-26
+    group: evening
+    tag: evening
+    label: Evening Dance
+    name: Noelle Vaughn & Her Flaming Hearts
+    time: Evening · Tickets Required
