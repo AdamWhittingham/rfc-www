@@ -21,9 +21,9 @@
     {{- range hugo.Data.gallery.photos }}
     {{- $photo := . }}
 
-    <div class="photo-item" data-category="{{ .category }}" data-lightbox="{{ with .full | default .src }}{{ . | relURL }}{{ end }}">
+    <div class="photo-item" data-category="{{ .category }}" data-lightbox="{{ with .full | default .src }}{{ strings.TrimPrefix "/" . | relURL }}{{ end }}">
       {{- with .src }}
-      <img src="{{ . | relURL }}" alt="{{ $photo.alt }}" loading="lazy">
+      <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $photo.alt }}" loading="lazy">
       {{- else }}
       <div class="photo-placeholder" style="min-height:{{ .height | default 200 }}px;">
         <div class="photo-placeholder__icon">{{ .icon | default "📷" }}</div>

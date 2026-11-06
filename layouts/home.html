@@ -200,9 +200,9 @@
   <div class="gallery-mosaic" style="max-width:var(--max-w); margin:0 auto; padding:0 2rem;" aria-label="Photo gallery">
     {{- range first 8 hugo.Data.gallery.photos }}
     {{- $photo := . }}
-    <div class="gallery-cell" data-lightbox="{{ with .full | default .src }}{{ . | relURL }}{{ end }}">
+    <div class="gallery-cell" data-lightbox="{{ with .full | default .src }}{{ strings.TrimPrefix "/" . | relURL }}{{ end }}">
       {{- with .src }}
-      <img src="{{ . | relURL }}" alt="{{ $photo.alt }}" loading="lazy">
+      <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $photo.alt }}" loading="lazy">
       {{- else }}
       <div class="gallery-cell__placeholder">📷</div>
       {{- end }}
