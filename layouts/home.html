@@ -111,7 +111,6 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           Instagram
         </li>
-        <li class="social-tab" role="tab" data-tab="embed" aria-selected="false">Live Feed</li>
       </ul>
     </div>
 
@@ -146,24 +145,6 @@
         <a href="{{ $social.instagram.url }}" target="_blank" rel="noopener" class="btn btn--ig">
           Follow on Instagram
         </a>
-      </div>
-    </div>
-
-    <!-- Live panel: Facebook's official Page Plugin. The iframe only loads (and
-         Facebook only sees the visitor) once this tab is opened. -->
-    <div class="social-tab-panel" data-panel="embed">
-      <div class="embed-grid">
-        <iframe class="embed-frame"
-                data-src="https://www.facebook.com/plugins/page.php?href={{ $social.facebook.url | urlquery }}&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
-                width="500" height="600" style="border:none; overflow:hidden; width:100%; max-width:500px;"
-                scrolling="no" frameborder="0" allowfullscreen="true"
-                allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
-                title="Latest posts from the 95th Bomb Group Heritage Facebook Page"></iframe>
-        <div class="embed-placeholder">
-          <div class="embed-placeholder__icon">📸</div>
-          <div class="embed-placeholder__text">Instagram<br><small>See our latest photos on Instagram</small></div>
-          <a href="{{ $social.instagram.url }}" target="_blank" rel="noopener" class="btn btn--ig" style="margin-top:1rem;">Follow on Instagram</a>
-        </div>
       </div>
     </div>
 

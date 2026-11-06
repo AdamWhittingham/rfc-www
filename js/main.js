@@ -45,12 +45,6 @@
       panels.forEach(p => {
         p.classList.toggle('active', p.dataset.panel === target);
       });
-
-      // Load embedded third-party feeds only once their tab is opened
-      document.querySelectorAll(`[data-panel="${target}"] iframe[data-src]`).forEach(frame => {
-        frame.src = frame.dataset.src;
-        frame.removeAttribute('data-src');
-      });
     });
   });
 
