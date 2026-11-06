@@ -1,0 +1,71 @@
+# Publishes the site to GitHub Pages on every push to master or hugo. Both
+# branches deploy to the same URL, so whichever was pushed last is live.
+#
+# The same file works on both branches: a branch with a hugo.toml is built
+# with Hugo, otherwise the flat HTML files are published as they are.
+#
+# Requires Settings → Pages → Source: "GitHub Actions", and both branches
+# allowed under Settings → Environments → github-pages → Deployment branches.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master, hugo]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; don't cancel one that's already running.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  HUGO_VERSION: 0.169.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Install Hugo
+        if: hashFiles('hugo.toml') != ''
+        run: |
+          wget -qO "$RUNNER_TEMP/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i "$RUNNER_TEMP/hugo.deb"
+
+      - name: Build with Hugo
+        if: hashFiles('hugo.toml') != ''
+        env:
+          # Page access token for the Facebook/Instagram feeds (see README).
+          # Without it the build uses data/social.yaml.
+          RFC_META_TOKEN: ${{ secrets.RFC_META_TOKEN }}
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/" --destination _site
+
+      - name: Collect flat-file site
+        if: hashFiles('hugo.toml') == ''
+        run: |
+          mkdir _site
+          cp -R index.html pages css js images _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
