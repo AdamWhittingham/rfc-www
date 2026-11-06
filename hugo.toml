@@ -45,7 +45,10 @@ disableKinds = ["taxonomy", "term", "section", "rss"]
     graphURL = "https://graph.facebook.com/v23.0"
     posts = 3
     [params.social.facebook]
-      url = "https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/"
+      # Where "Facebook" links and buttons go.
+      url = "https://www.facebook.com/groups/95thBG/"
+      # The Latest News feed reads from a Facebook Page instead, because Meta
+      # removed API access to Groups in 2024.
       pageID = "61554777124268"
     [params.social.instagram]
       url = "https://www.instagram.com/95thbombgroupheritage/"
