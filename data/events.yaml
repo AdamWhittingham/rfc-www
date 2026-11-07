@@ -17,6 +17,8 @@ groups:
     heading: "Open Days<br/>10am to 4pm"
   - id: evening
     heading: "Dances"
+  - id: other
+    heading: "Other Events"
 
 events:
   - date: 2027-04-25
@@ -34,9 +36,10 @@ events:
 
   - date: 2027-06-27
     group: open
-    tag: open
-    name: Museum Open Day
-    time: 10am – 4pm · Free Entry
+    tag: special
+    name: Americana Day!
+    time: 10am – 4pm · Free Entry · Family Friendly
+    desc: Our popular annual Americana Day — American cars, music, food, costumes and more. A brilliant day for the whole family.
 
   - date: 2027-07-25
     group: open
@@ -96,3 +99,10 @@ events:
     label: Fundraising Dance
     name: Fundraising Dance in aid of Redlingfield Charity
     time: Evening · With Guest DJs
+
+  - date: 2027-12-03
+    group: other
+    tag: special
+    label: Christmas
+    name: Christmas Carols
+    time: With the Salvation Army Band
