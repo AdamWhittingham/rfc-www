@@ -21,15 +21,17 @@
 */
 :root {
   --ink:           #151b0f;   /* near-black, green-toned */
-  --od-dark:       #2c3320;   /* Olive Drab No.41 deep shadow */
-  --olive-drab:    #4b5320;   /* Olive Drab No.41 — the authentic 1943 colour */
-  --od-mid:        #5c6530;   /* slightly lighter OD for panels */
+  --od-dark:       #272d1c;   /* Olive Drab No.41 deep shadow */
+  --olive-drab:    #42491c;   /* Olive Drab No.41 — the authentic 1943 colour */
+  --od-mid:        #51592a;   /* slightly lighter OD for panels */
   --od-light:      #d4d9b8;   /* pale OD tint — card/section backgrounds */
-  --khaki:         #8a7e5a;   /* Khaki No.26 — muted warm brown */
+  --khaki:         #635b41;   /* Khaki No.26, deepened — body text on light grounds */
+  --khaki-light:   #ab9f7e;   /* lighter Khaki No.26 — muted text on dark grounds */
   --khaki-pale:    #ede8d5;   /* light khaki parchment — page background */
   --sand:          #c8bc94;   /* warm sand — secondary text on dark grounds */
   --insignia-red:  #8b1a1a;   /* USAAF National Insignia Red */
-  --insignia-yel:  #b8960c;   /* Identification Yellow — accent/gold */
+  --insignia-yel:  #d4ac0e;   /* Identification Yellow — accent/gold on dark grounds */
+  --gold-deep:     #6b5707;   /* deep Identification Yellow — gold text on light grounds */
   --neutral-sky:   #7a8c7e;   /* Neutral Gray tinted cool — subtle accent */
   --white:         #f5f2e8;   /* warm off-white */
   --shadow:        rgba(21,27,15,0.22);
@@ -108,7 +110,7 @@ body::before {
 .nav__emblem-placeholder {
   font-family: var(--font-label);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--insignia-yel);
   letter-spacing: 0.05em;
   text-align: center;
@@ -128,8 +130,8 @@ body::before {
 .nav__title span {
   display: block;
   font-weight: 300;
-  font-size: 11px;
-  color: var(--khaki);
+  font-size: 12px;
+  color: var(--khaki-light);
   letter-spacing: 0.2em;
 }
 
@@ -144,10 +146,10 @@ body::before {
   padding: 0 1.1rem;
   font-family: var(--font-label);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--khaki);
+  color: var(--khaki-light);
   transition: color 0.2s;
   white-space: nowrap;
 }
@@ -197,7 +199,7 @@ body::before {
   font-family: var(--font-label);
   font-weight: 600; font-size: 14px;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--khaki);
+  color: var(--khaki-light);
   border-bottom: 1px solid rgba(200,146,58,0.1);
 }
 
@@ -227,9 +229,9 @@ body::before {
 /* Fallback shown when no image is present */
 .hero__img-fallback {
   position: absolute; inset: 0;
-  background: linear-gradient(160deg, #2c3320 0%, #1e2614 60%, #131809 100%);
+  background: linear-gradient(160deg, #272d1c 0%, #1a2112 60%, #111508 100%);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-label); font-size: 12px;
+  font-family: var(--font-label); font-size: 13px;
   letter-spacing: 0.25em; text-transform: uppercase;
   color: rgba(184,150,12,0.35);
   text-align: center; line-height: 2;
@@ -254,7 +256,7 @@ body::before {
 
 .hero__kicker {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 12px;
+  font-weight: 700; font-size: 13px;
   letter-spacing: 0.35em; text-transform: uppercase;
   color: var(--gold);
   display: flex; align-items: center; gap: 0.75rem;
@@ -285,7 +287,7 @@ body::before {
   font-family: var(--font-label);
   font-weight: 300; font-size: clamp(1rem, 2vw, 1.3rem);
   letter-spacing: 0.08em;
-  color: var(--khaki);
+  color: var(--khaki-light);
   margin-bottom: 2rem;
   max-width: 600px;
 }
@@ -304,8 +306,8 @@ body::before {
 
 .hero__stat-label {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--khaki);
+  font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--khaki-light);
   margin-top: 0.2rem;
 }
 
@@ -317,7 +319,7 @@ body::before {
   display: inline-flex; align-items: center; gap: 0.5rem;
   padding: 0.85rem 2rem;
   font-family: var(--font-label);
-  font-weight: 700; font-size: 13px;
+  font-weight: 700; font-size: 14px;
   letter-spacing: 0.15em; text-transform: uppercase;
   border: none; cursor: pointer;
   border-radius: 2px;
@@ -366,9 +368,9 @@ body::before {
 
 .section-label {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 11px;
+  font-weight: 700; font-size: 12px;
   letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   display: flex; align-items: center; gap: 0.75rem;
   margin-bottom: 1rem;
 }
@@ -391,7 +393,7 @@ body::before {
   max-width: 640px;
 }
 
-.section--dark .section-body { color: rgba(232,217,192,0.7); }
+.section--dark .section-body { color: rgba(232,217,192,0.85); }
 
 /* ======================================================
    NEWS FEED — Social / Facebook / Instagram
@@ -423,7 +425,7 @@ body::before {
 
 .social-tab {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 12px;
+  font-weight: 700; font-size: 13px;
   letter-spacing: 0.15em; text-transform: uppercase;
   padding: 0.6rem 1.25rem;
   cursor: pointer;
@@ -493,7 +495,7 @@ body::before {
 
 .feed-card__date {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--khaki); margin-bottom: 0.5rem;
 }
 
@@ -510,7 +512,7 @@ body::before {
   display: inline-flex; align-items: center; gap: 0.35rem;
   margin-top: 1rem;
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--red); font-weight: 700;
 }
 
@@ -558,7 +560,7 @@ body::before {
 .embed-placeholder__icon { font-size: 2rem; opacity: 0.4; }
 .embed-placeholder__text {
   font-family: var(--font-label);
-  font-size: 13px; letter-spacing: 0.1em;
+  font-size: 14px; letter-spacing: 0.1em;
   color: var(--khaki);
 }
 
@@ -605,14 +607,14 @@ body::before {
 .event-date__mon {
   display: block;
   font-family: var(--font-label);
-  font-size: 10px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--khaki);
+  font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--khaki-light);
 }
 
 .event-info__type {
   font-family: var(--font-label);
-  font-size: 10px; letter-spacing: 0.25em;
-  text-transform: uppercase; color: var(--gold);
+  font-size: 12px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold-deep);
   margin-bottom: 0.2rem;
 }
 
@@ -624,7 +626,7 @@ body::before {
 
 .event-info__time {
   font-family: var(--font-label);
-  font-size: 12px; color: var(--khaki);
+  font-size: 13px; color: var(--khaki);
   margin-top: 0.2rem;
 }
 
@@ -711,7 +713,7 @@ body::before {
 .timeline-year {
   font-family: var(--font-label);
   font-weight: 900; font-size: 1.8rem;
-  color: var(--gold); line-height: 1;
+  color: var(--gold-deep); line-height: 1;
   margin-bottom: 0.25rem;
 }
 
@@ -775,9 +777,9 @@ body::before {
 
 .visit-card__title {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 12px;
+  font-weight: 700; font-size: 13px;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.75rem;
+  color: var(--gold-deep); margin-bottom: 0.75rem;
 }
 
 .visit-card__body {
@@ -792,7 +794,7 @@ body::before {
    ====================================================== */
 .footer {
   background: var(--od-dark);
-  color: var(--khaki);
+  color: var(--khaki-light);
   padding: 5rem 2rem 3rem;
   border-top: 2px solid var(--insignia-yel);
 }
@@ -813,13 +815,13 @@ body::before {
 
 .footer__brand-sub {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em;
+  font-size: 12px; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--gold);
   margin-bottom: 1rem;
 }
 
 .footer__brand-desc {
-  font-size: 0.88rem; line-height: 1.7;
+  font-size: 0.9rem; line-height: 1.7;
   margin-bottom: 1.5rem;
 }
 
@@ -839,7 +841,7 @@ body::before {
 
 .footer__col-title {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 11px;
+  font-weight: 700; font-size: 12px;
   letter-spacing: 0.25em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 1.25rem;
 }
@@ -860,7 +862,7 @@ body::before {
   display: flex; align-items: center;
   justify-content: space-between; flex-wrap: gap;
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.1em;
+  font-size: 12px; letter-spacing: 0.1em;
   gap: 1rem; flex-wrap: wrap;
 }
 
@@ -889,7 +891,7 @@ body::before {
 
 .page-hero .section-label { color: var(--gold); }
 .page-hero .section-title { color: var(--white); }
-.page-hero .section-body { color: rgba(232,217,192,0.6); max-width: 580px; }
+.page-hero .section-body { color: rgba(232,217,192,0.85); max-width: 580px; }
 
 /* ======================================================
    LIGHTBOX

@@ -40,15 +40,17 @@ USAAF-authentic colour intent when extending this stylesheet.
 */
 :root {
   --ink:           #151b0f;   /* near-black, green-toned */
-  --od-dark:       #2c3320;   /* Olive Drab No.41 deep shadow */
-  --olive-drab:    #4b5320;   /* Olive Drab No.41 — the authentic 1943 colour */
-  --od-mid:        #5c6530;   /* slightly lighter OD for panels */
+  --od-dark:       #272d1c;   /* Olive Drab No.41 deep shadow */
+  --olive-drab:    #42491c;   /* Olive Drab No.41 — the authentic 1943 colour */
+  --od-mid:        #51592a;   /* slightly lighter OD for panels */
   --od-light:      #d4d9b8;   /* pale OD tint — card/section backgrounds */
-  --khaki:         #8a7e5a;   /* Khaki No.26 — muted warm brown */
+  --khaki:         #635b41;   /* Khaki No.26, deepened — body text on light grounds */
+  --khaki-light:   #ab9f7e;   /* lighter Khaki No.26 — muted text on dark grounds */
   --khaki-pale:    #ede8d5;   /* light khaki parchment — page background */
   --sand:          #c8bc94;   /* warm sand — secondary text on dark grounds */
   --insignia-red:  #8b1a1a;   /* USAAF National Insignia Red */
-  --insignia-yel:  #b8960c;   /* Identification Yellow — accent/gold */
+  --insignia-yel:  #d4ac0e;   /* Identification Yellow — accent/gold on dark grounds */
+  --gold-deep:     #6b5707;   /* deep Identification Yellow — gold text on light grounds */
   --neutral-sky:   #7a8c7e;   /* Neutral Gray tinted cool — subtle accent */
   --white:         #f5f2e8;   /* warm off-white */
   --shadow:        rgba(21,27,15,0.22);
@@ -127,7 +129,7 @@ body::before {
 .nav__emblem-placeholder {
   font-family: var(--font-label);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--insignia-yel);
   letter-spacing: 0.05em;
   text-align: center;
@@ -147,8 +149,8 @@ body::before {
 .nav__title span {
   display: block;
   font-weight: 300;
-  font-size: 11px;
-  color: var(--khaki);
+  font-size: 12px;
+  color: var(--khaki-light);
   letter-spacing: 0.2em;
 }
 
@@ -163,10 +165,10 @@ body::before {
   padding: 0 1.1rem;
   font-family: var(--font-label);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--khaki);
+  color: var(--khaki-light);
   transition: color 0.2s;
   white-space: nowrap;
 }
@@ -216,7 +218,7 @@ body::before {
   font-family: var(--font-label);
   font-weight: 600; font-size: 14px;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--khaki);
+  color: var(--khaki-light);
   border-bottom: 1px solid rgba(200,146,58,0.1);
 }
 
@@ -246,9 +248,9 @@ body::before {
 /* Fallback shown when no image is present */
 .hero__img-fallback {
   position: absolute; inset: 0;
-  background: linear-gradient(160deg, #2c3320 0%, #1e2614 60%, #131809 100%);
+  background: linear-gradient(160deg, #272d1c 0%, #1a2112 60%, #111508 100%);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-label); font-size: 12px;
+  font-family: var(--font-label); font-size: 13px;
   letter-spacing: 0.25em; text-transform: uppercase;
   color: rgba(184,150,12,0.35);
   text-align: center; line-height: 2;
@@ -273,7 +275,7 @@ body::before {
 
 .hero__kicker {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 12px;
+  font-weight: 700; font-size: 13px;
   letter-spacing: 0.35em; text-transform: uppercase;
   color: var(--gold);
   display: flex; align-items: center; gap: 0.75rem;
@@ -304,7 +306,7 @@ body::before {
   font-family: var(--font-label);
   font-weight: 300; font-size: clamp(1rem, 2vw, 1.3rem);
   letter-spacing: 0.08em;
-  color: var(--khaki);
+  color: var(--khaki-light);
   margin-bottom: 2rem;
   max-width: 600px;
 }
@@ -323,8 +325,8 @@ body::before {
 
 .hero__stat-label {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--khaki);
+  font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--khaki-light);
   margin-top: 0.2rem;
 }
 
@@ -336,7 +338,7 @@ body::before {
   display: inline-flex; align-items: center; gap: 0.5rem;
   padding: 0.85rem 2rem;
   font-family: var(--font-label);
-  font-weight: 700; font-size: 13px;
+  font-weight: 700; font-size: 14px;
   letter-spacing: 0.15em; text-transform: uppercase;
   border: none; cursor: pointer;
   border-radius: 2px;
@@ -385,9 +387,9 @@ body::before {
 
 .section-label {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 11px;
+  font-weight: 700; font-size: 12px;
   letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   display: flex; align-items: center; gap: 0.75rem;
   margin-bottom: 1rem;
 }
@@ -410,7 +412,7 @@ body::before {
   max-width: 640px;
 }
 
-.section--dark .section-body { color: rgba(232,217,192,0.7); }
+.section--dark .section-body { color: rgba(232,217,192,0.85); }
 
 /* ======================================================
    NEWS FEED — Social / Facebook / Instagram
@@ -442,7 +444,7 @@ body::before {
 
 .social-tab {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 12px;
+  font-weight: 700; font-size: 13px;
   letter-spacing: 0.15em; text-transform: uppercase;
   padding: 0.6rem 1.25rem;
   cursor: pointer;
@@ -512,7 +514,7 @@ body::before {
 
 .feed-card__date {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--khaki); margin-bottom: 0.5rem;
 }
 
@@ -529,7 +531,7 @@ body::before {
   display: inline-flex; align-items: center; gap: 0.35rem;
   margin-top: 1rem;
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--red); font-weight: 700;
 }
 
@@ -579,7 +581,7 @@ body::before {
 .embed-placeholder__icon { font-size: 2rem; opacity: 0.4; }
 .embed-placeholder__text {
   font-family: var(--font-label);
-  font-size: 13px; letter-spacing: 0.1em;
+  font-size: 14px; letter-spacing: 0.1em;
   color: var(--khaki);
 }
 
@@ -626,14 +628,14 @@ body::before {
 .event-date__mon {
   display: block;
   font-family: var(--font-label);
-  font-size: 10px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--khaki);
+  font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--khaki-light);
 }
 
 .event-info__type {
   font-family: var(--font-label);
-  font-size: 10px; letter-spacing: 0.25em;
-  text-transform: uppercase; color: var(--gold);
+  font-size: 12px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold-deep);
   margin-bottom: 0.2rem;
 }
 
@@ -645,7 +647,7 @@ body::before {
 
 .event-info__time {
   font-family: var(--font-label);
-  font-size: 12px; color: var(--khaki);
+  font-size: 13px; color: var(--khaki);
   margin-top: 0.2rem;
 }
 
@@ -732,7 +734,7 @@ body::before {
 .timeline-year {
   font-family: var(--font-label);
   font-weight: 900; font-size: 1.8rem;
-  color: var(--gold); line-height: 1;
+  color: var(--gold-deep); line-height: 1;
   margin-bottom: 0.25rem;
 }
 
@@ -796,9 +798,9 @@ body::before {
 
 .visit-card__title {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 12px;
+  font-weight: 700; font-size: 13px;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.75rem;
+  color: var(--gold-deep); margin-bottom: 0.75rem;
 }
 
 .visit-card__body {
@@ -813,7 +815,7 @@ body::before {
    ====================================================== */
 .footer {
   background: var(--od-dark);
-  color: var(--khaki);
+  color: var(--khaki-light);
   padding: 5rem 2rem 3rem;
   border-top: 2px solid var(--insignia-yel);
 }
@@ -834,13 +836,13 @@ body::before {
 
 .footer__brand-sub {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em;
+  font-size: 12px; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--gold);
   margin-bottom: 1rem;
 }
 
 .footer__brand-desc {
-  font-size: 0.88rem; line-height: 1.7;
+  font-size: 0.9rem; line-height: 1.7;
   margin-bottom: 1.5rem;
 }
 
@@ -860,7 +862,7 @@ body::before {
 
 .footer__col-title {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 11px;
+  font-weight: 700; font-size: 12px;
   letter-spacing: 0.25em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 1.25rem;
 }
@@ -881,7 +883,7 @@ body::before {
   display: flex; align-items: center;
   justify-content: space-between; flex-wrap: gap;
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.1em;
+  font-size: 12px; letter-spacing: 0.1em;
   gap: 1rem; flex-wrap: wrap;
 }
 
@@ -910,7 +912,7 @@ body::before {
 
 .page-hero .section-label { color: var(--gold); }
 .page-hero .section-title { color: var(--white); }
-.page-hero .section-body { color: rgba(232,217,192,0.6); max-width: 580px; }
+.page-hero .section-body { color: rgba(232,217,192,0.85); max-width: 580px; }
 
 /* ======================================================
    LIGHTBOX
@@ -1011,7 +1013,7 @@ body::before {
 }
 .intro-card__link {
   font-family: var(--font-label);
-  font-size: 11px; font-weight: 700;
+  font-size: 12px; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--red); display: inline-flex; align-items: center; gap: 0.35rem;
 }
@@ -1039,7 +1041,7 @@ body::before {
   letter-spacing: 0.1em; color: var(--sand);
 }
 .merch-strip strong { color: var(--insignia-yel); }
-.merch-strip a.btn { padding: 0.5rem 1.25rem; font-size: 12px; }
+.merch-strip a.btn { padding: 0.5rem 1.25rem; font-size: 13px; }
 
 /* ======================================================
    PULL QUOTE
@@ -1055,7 +1057,7 @@ body::before {
 .pull-quote cite {
   display: block; margin-top: 0.5rem;
   font-family: var(--font-label); font-style: normal;
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--khaki);
 }
 
@@ -1094,13 +1096,13 @@ body::before {
 
 .event-badge__month {
   display: block; font-family: var(--font-label);
-  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--khaki);
+  font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--khaki-light);
 }
 
 .event-details__tag {
   display: inline-block;
-  font-family: var(--font-label); font-size: 10px;
+  font-family: var(--font-label); font-size: 12px;
   letter-spacing: 0.2em; text-transform: uppercase;
   padding: 0.2rem 0.6rem;
   border-radius: 2px; margin-bottom: 0.4rem;
@@ -1108,7 +1110,7 @@ body::before {
 
 .tag--open { background: rgba(74,82,64,0.15); color: var(--olive); }
 .tag--evening { background: rgba(155,35,53,0.1); color: var(--red); }
-.tag--special { background: rgba(200,146,58,0.15); color: #a07028; }
+.tag--special { background: rgba(200,146,58,0.15); color: var(--gold-deep); }
 
 .event-details__name {
   font-family: var(--font-display);
@@ -1119,12 +1121,12 @@ body::before {
 .event-details__name a:hover { color: var(--red); }
 
 .event-details__time {
-  font-family: var(--font-label); font-size: 12px;
+  font-family: var(--font-label); font-size: 13px;
   color: var(--khaki); letter-spacing: 0.05em;
 }
 
 .event-details__desc {
-  font-size: 0.88rem; color: var(--khaki);
+  font-size: 0.9rem; color: var(--khaki);
   line-height: 1.65; margin-top: 0.5rem;
   max-width: 520px;
 }
@@ -1153,7 +1155,7 @@ body::before {
 }
 .filter-btn {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 11px;
+  font-weight: 700; font-size: 12px;
   letter-spacing: 0.15em; text-transform: uppercase;
   padding: 0.45rem 1rem; border-radius: 2px;
   border: 1.5px solid rgba(139,125,94,0.3);
@@ -1190,7 +1192,7 @@ body::before {
 }
 .photo-placeholder__icon { font-size: 1.5rem; opacity: 0.5; }
 .photo-placeholder__label {
-  font-family: var(--font-label); font-size: 10px;
+  font-family: var(--font-label); font-size: 12px;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--khaki); text-align: center;
 }
@@ -1199,7 +1201,7 @@ body::before {
   position: absolute; bottom: 0; left: 0; right: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
   padding: 1.5rem 0.75rem 0.75rem;
-  font-family: var(--font-label); font-size: 11px;
+  font-family: var(--font-label); font-size: 12px;
   letter-spacing: 0.05em; color: white;
   opacity: 0; transition: opacity 0.3s;
   z-index: 1;
@@ -1232,7 +1234,7 @@ body::before {
 }
 .stat-box__label {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em;
+  font-size: 12px; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--khaki);
 }
 
@@ -1245,14 +1247,14 @@ body::before {
 }
 .sidebar-card__title {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 11px;
+  font-weight: 700; font-size: 12px;
   letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1rem;
+  color: var(--gold-deep); margin-bottom: 1rem;
 }
-.sidebar-card p { font-size: 0.88rem; color: var(--khaki); line-height: 1.7; margin-bottom: 0.75rem; }
-.sidebar-card a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
+.sidebar-card p { font-size: 0.9rem; color: var(--khaki); line-height: 1.7; margin-bottom: 0.75rem; }
+.sidebar-card a:not(.btn) { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
 .sidebar-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.sidebar-card li { font-size: 0.88rem; color: var(--khaki); }
+.sidebar-card li { font-size: 0.9rem; color: var(--khaki); }
 
 .squadron-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
@@ -1261,10 +1263,10 @@ body::before {
 }
 .squadron-box {
   background: var(--white); padding: 1rem 1.25rem;
-  font-family: var(--font-label); font-size: 13px;
+  font-family: var(--font-label); font-size: 14px;
 }
 .squadron-box strong { display: block; color: var(--ink); font-weight: 700; }
-.squadron-box span { color: var(--khaki); font-size: 11px; letter-spacing: 0.1em; }
+.squadron-box span { color: var(--khaki); font-size: 12px; letter-spacing: 0.1em; }
 
 @media (max-width: 900px) {
   .history-layout { grid-template-columns: 1fr; }
@@ -1282,11 +1284,11 @@ body::before {
 }
 .feature-list__icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
 .feature-list__title { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; }
-.feature-list__desc { font-size: 0.875rem; color: var(--khaki); line-height: 1.65; }
+.feature-list__desc { font-size: 0.9rem; color: var(--khaki); line-height: 1.65; }
 .photo-full {
   aspect-ratio: 16/10; background: var(--aged);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-label); font-size: 11px; letter-spacing: 0.2em;
+  font-family: var(--font-label); font-size: 12px; letter-spacing: 0.2em;
   color: var(--khaki); text-align: center; padding: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -1310,7 +1312,7 @@ body::before {
 .form-group { margin-bottom: 1.25rem; }
 .form-label, label {
   display: block; margin-bottom: 0.4rem;
-  font-family: var(--font-label); font-size: 11px;
+  font-family: var(--font-label); font-size: 12px;
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--khaki);
 }
 .form-input, .form-textarea,
@@ -1347,7 +1349,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
   background: var(--od-dark); color: var(--gold);
   clip: auto !important; clip-path: none;
   display: block; height: auto; width: auto;
-  font-family: var(--font-label); font-size: 13px;
+  font-family: var(--font-label); font-size: 14px;
   letter-spacing: 0.15em; text-transform: uppercase;
   left: 1rem; top: 1rem; padding: 0.9rem 1.5rem;
   border: 2px solid var(--gold); border-radius: 2px;
@@ -1382,7 +1384,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
 
 .nav__mobile .sub-menu { list-style: none; }
 .nav__mobile .sub-menu a,
-.nav__mobile a.is-sub { padding-left: 3.25rem; font-size: 13px; }
+.nav__mobile a.is-sub { padding-left: 3.25rem; font-size: 14px; }
 .nav__mobile a.active { color: var(--gold); }
 
 /* Content below the fixed nav on pages without a hero */
@@ -1415,7 +1417,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
 .entry-content h5,
 .entry-content h6 {
   font-family: var(--font-label);
-  font-size: 12px; font-weight: 700;
+  font-size: 13px; font-weight: 700;
   letter-spacing: 0.25em; text-transform: uppercase;
   color: var(--khaki);
 }
@@ -1444,7 +1446,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
 .wp-block-quote cite {
   display: block; margin-top: 0.5rem;
   font-family: var(--font-label); font-style: normal;
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--khaki);
 }
 .wp-block-pullquote {
@@ -1484,7 +1486,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
 .entry-content th, .wp-block-table th {
   background: var(--od-light);
   font-family: var(--font-label);
-  font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+  font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
 }
 .wp-block-table { overflow-x: auto; }
 
@@ -1494,7 +1496,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
 .wp-caption { max-width: 100%; }
 .wp-caption-text, .wp-block-image figcaption, .wp-block-embed figcaption, .gallery-caption {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.12em;
+  font-size: 12px; letter-spacing: 0.12em;
   color: var(--khaki); text-align: left;
   margin-top: 0.6rem;
 }
@@ -1521,7 +1523,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
   display: inline-flex; align-items: center; gap: 0.5rem;
   padding: 0.85rem 2rem;
   font-family: var(--font-label);
-  font-weight: 700; font-size: 13px;
+  font-weight: 700; font-size: 14px;
   letter-spacing: 0.15em; text-transform: uppercase;
   background: var(--red); color: var(--white);
   border-radius: 2px; text-decoration: none;
@@ -1579,14 +1581,14 @@ input[type="submit"], button[type="submit"] { width: auto; }
 .post-card__more {
   margin-top: auto;
   font-family: var(--font-label);
-  font-size: 11px; font-weight: 700;
+  font-size: 12px; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--red);
 }
 
 .entry-meta {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--khaki);
   display: flex; flex-wrap: wrap; gap: 1rem;
   margin-bottom: 1rem;
@@ -1605,7 +1607,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
   margin-top: 4rem; padding-top: 2rem;
   border-top: 1px solid rgba(139,125,94,0.3);
   font-family: var(--font-label);
-  font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+  font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
 }
 .pagination .nav-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .pagination .page-numbers {
@@ -1633,7 +1635,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
 .comments-area { margin-top: 4rem; }
 .comments-title, .comment-reply-title {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 12px;
+  font-weight: 700; font-size: 13px;
   letter-spacing: 0.3em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 1.5rem;
 }
@@ -1647,12 +1649,12 @@ input[type="submit"], button[type="submit"] { width: auto; }
 }
 .comment-author { font-family: var(--font-display); font-weight: 700; }
 .comment-author img { display: inline-block; vertical-align: middle; margin-right: 0.6rem; border-radius: 50%; }
-.comment-metadata { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--khaki); margin-bottom: 0.75rem; }
+.comment-metadata { font-family: var(--font-label); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--khaki); margin-bottom: 0.75rem; }
 .comment-content { font-size: 0.95rem; }
-.reply { margin-top: 0.75rem; font-family: var(--font-label); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+.reply { margin-top: 0.75rem; font-family: var(--font-label); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; }
 .reply a { color: var(--red); }
 .comment-form { max-width: 640px; }
-.comment-notes, .form-allowed-tags { font-size: 0.85rem; color: var(--khaki); }
+.comment-notes, .form-allowed-tags { font-size: 0.9rem; color: var(--khaki); }
 
 /* ======================================================
    WORDPRESS — widgets
@@ -1660,7 +1662,7 @@ input[type="submit"], button[type="submit"] { width: auto; }
 .widget { margin-bottom: 2.5rem; }
 .widget-title {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 11px;
+  font-weight: 700; font-size: 12px;
   letter-spacing: 0.25em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 1rem;
 }

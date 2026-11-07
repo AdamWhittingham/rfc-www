@@ -30,13 +30,13 @@
 
 .event-badge__month {
   display: block; font-family: var(--font-label);
-  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--khaki);
+  font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--khaki-light);
 }
 
 .event-details__tag {
   display: inline-block;
-  font-family: var(--font-label); font-size: 10px;
+  font-family: var(--font-label); font-size: 12px;
   letter-spacing: 0.2em; text-transform: uppercase;
   padding: 0.2rem 0.6rem;
   border-radius: 2px; margin-bottom: 0.4rem;
@@ -44,7 +44,7 @@
 
 .tag--open { background: rgba(74,82,64,0.15); color: var(--olive); }
 .tag--evening { background: rgba(155,35,53,0.1); color: var(--red); }
-.tag--special { background: rgba(200,146,58,0.15); color: #a07028; }
+.tag--special { background: rgba(200,146,58,0.15); color: var(--gold-deep); }
 
 .event-details__name {
   font-family: var(--font-display);
@@ -53,12 +53,12 @@
 }
 
 .event-details__time {
-  font-family: var(--font-label); font-size: 12px;
+  font-family: var(--font-label); font-size: 13px;
   color: var(--khaki); letter-spacing: 0.05em;
 }
 
 .event-details__desc {
-  font-size: 0.88rem; color: var(--khaki);
+  font-size: 0.9rem; color: var(--khaki);
   line-height: 1.65; margin-top: 0.5rem;
   max-width: 520px;
 }

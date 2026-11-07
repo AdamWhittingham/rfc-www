@@ -263,12 +263,14 @@ All colours are CSS variables in `css/style.css`:
 ```css
 The palette is now rooted in authentic 1943 USAAF colours:
 
---olive-drab (#4b5320) — Olive Drab No. 41, the exact colour used on B-17s, jeeps, and equipment. This is now the dominant structural colour — nav, hero, footers, section bands, and CTAs all carry this tone.
---od-dark (#2c3320) — The deep shadow version, used for the navbar, page heroes, and footer backgrounds.
+--olive-drab (#42491c) — Olive Drab No. 41, the exact colour used on B-17s, jeeps, and equipment. This is now the dominant structural colour — nav, hero, footers, section bands, and CTAs all carry this tone.
+--od-dark (#272d1c) — The deep shadow version, used for the navbar, page heroes, and footer backgrounds.
 --od-light (#d4d9b8) — A pale, desaturated OD tint for card hover states and the social feed panel.
---insignia-yel (#b8960c) — USAAF Identification Yellow, the period-correct accent used on training markings and national insignia borders. Replaces the warm gold.
+--insignia-yel (#d4ac0e) — USAAF Identification Yellow, the period-correct accent used on training markings and national insignia borders. Used on dark backgrounds.
+--gold-deep (#6b5707) — A deep version of the same yellow for gold text on light backgrounds, where the bright yellow is too faint to read.
 --insignia-red (#8b1a1a) — National Insignia Red, the darker period-correct red used on the star-and-bar roundel.
---khaki / --khaki-pale — Khaki No. 26, the uniform colour — warm but now unmistakably in the OD family.
+--khaki (#635b41) / --khaki-pale — Khaki No. 26, the uniform colour — warm but now unmistakably in the OD family. --khaki is body text on light backgrounds.
+--khaki-light (#ab9f7e) — A lighter khaki for muted text on dark backgrounds (nav, hero, footer).
 --sand (#c8bc94) — Used for secondary text on dark grounds, echoing the desert sand tones of the era.
 ```
 

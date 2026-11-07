@@ -14,15 +14,17 @@
       "defaultGradients": false,
       "palette": [
         { "slug": "ink",          "name": "Ink (Gunmetal)",            "color": "#151b0f" },
-        { "slug": "od-dark",      "name": "Olive Drab — Shadow",       "color": "#2c3320" },
-        { "slug": "olive-drab",   "name": "Olive Drab No.41",          "color": "#4b5320" },
-        { "slug": "od-mid",       "name": "Olive Drab — Mid",          "color": "#5c6530" },
+        { "slug": "od-dark",      "name": "Olive Drab — Shadow",       "color": "#272d1c" },
+        { "slug": "olive-drab",   "name": "Olive Drab No.41",          "color": "#42491c" },
+        { "slug": "od-mid",       "name": "Olive Drab — Mid",          "color": "#51592a" },
         { "slug": "od-light",     "name": "Olive Drab — Pale",         "color": "#d4d9b8" },
-        { "slug": "khaki",        "name": "Khaki No.26",               "color": "#8a7e5a" },
+        { "slug": "khaki",        "name": "Khaki No.26",               "color": "#635b41" },
+        { "slug": "khaki-light",  "name": "Khaki — Light",             "color": "#ab9f7e" },
         { "slug": "khaki-pale",   "name": "Khaki — Parchment",         "color": "#ede8d5" },
         { "slug": "sand",         "name": "Desert Sand",               "color": "#c8bc94" },
         { "slug": "insignia-red", "name": "National Insignia Red",     "color": "#8b1a1a" },
-        { "slug": "insignia-yel", "name": "Identification Yellow",     "color": "#b8960c" },
+        { "slug": "insignia-yel", "name": "Identification Yellow",     "color": "#d4ac0e" },
+        { "slug": "gold-deep",    "name": "Identification Yellow — Deep", "color": "#6b5707" },
         { "slug": "neutral-sky",  "name": "Neutral Gray / Sky",        "color": "#7a8c7e" },
         { "slug": "white",        "name": "Warm Off-White",            "color": "#f5f2e8" }
       ],
@@ -35,7 +37,7 @@
         {
           "slug": "od-depth",
           "name": "Olive Drab Depth",
-          "gradient": "linear-gradient(160deg, #2c3320 0%, #1e2614 60%, #131809 100%)"
+          "gradient": "linear-gradient(160deg, #272d1c 0%, #1a2112 60%, #111508 100%)"
         }
       ]
     },
@@ -61,7 +63,7 @@
         }
       ],
       "fontSizes": [
-        { "slug": "small",   "name": "Small",   "size": "0.875rem" },
+        { "slug": "small",   "name": "Small",   "size": "0.9rem" },
         { "slug": "medium",  "name": "Medium",  "size": "1rem" },
         { "slug": "large",   "name": "Large",   "size": "1.35rem" },
         { "slug": "x-large", "name": "X-Large", "size": "clamp(1.6rem, 3vw, 2.1rem)" },
@@ -94,8 +96,8 @@
       "h2": { "typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "900", "lineHeight": "1.15" } },
       "h3": { "typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "700" } },
       "h4": { "typography": { "fontFamily": "var(--wp--preset--font-family--display)", "fontWeight": "700" } },
-      "h5": { "typography": { "fontFamily": "var(--wp--preset--font-family--label)", "fontWeight": "700", "textTransform": "uppercase", "letterSpacing": "0.25em", "fontSize": "12px" } },
-      "h6": { "typography": { "fontFamily": "var(--wp--preset--font-family--label)", "fontWeight": "700", "textTransform": "uppercase", "letterSpacing": "0.25em", "fontSize": "12px" } },
+      "h5": { "typography": { "fontFamily": "var(--wp--preset--font-family--label)", "fontWeight": "700", "textTransform": "uppercase", "letterSpacing": "0.25em", "fontSize": "13px" } },
+      "h6": { "typography": { "fontFamily": "var(--wp--preset--font-family--label)", "fontWeight": "700", "textTransform": "uppercase", "letterSpacing": "0.25em", "fontSize": "13px" } },
       "button": {
         "color": {
           "background": "var(--wp--preset--color--insignia-red)",
@@ -104,7 +106,7 @@
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--label)",
           "fontWeight": "700",
-          "fontSize": "13px",
+          "fontSize": "14px",
           "textTransform": "uppercase",
           "letterSpacing": "0.15em"
         },

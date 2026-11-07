@@ -23,7 +23,7 @@
 
 .stat-box__label {
   font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.2em;
+  font-size: 12px; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--khaki);
 }
 
@@ -37,13 +37,13 @@
 
 .sidebar-card__title {
   font-family: var(--font-label);
-  font-weight: 700; font-size: 11px;
+  font-weight: 700; font-size: 12px;
   letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1rem;
+  color: var(--gold-deep); margin-bottom: 1rem;
 }
 
-.sidebar-card p { font-size: 0.88rem; color: var(--khaki); line-height: 1.7; margin-bottom: 0.75rem; }
-.sidebar-card a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
+.sidebar-card p { font-size: 0.9rem; color: var(--khaki); line-height: 1.7; margin-bottom: 0.75rem; }
+.sidebar-card a:not(.btn) { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
 
 .squadron-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
@@ -53,11 +53,11 @@
 
 .squadron-box {
   background: var(--white); padding: 1rem 1.25rem;
-  font-family: var(--font-label); font-size: 13px;
+  font-family: var(--font-label); font-size: 14px;
 }
 
 .squadron-box strong { display: block; color: var(--ink); font-weight: 700; }
-.squadron-box span { color: var(--khaki); font-size: 11px; letter-spacing: 0.1em; }
+.squadron-box span { color: var(--khaki); font-size: 12px; letter-spacing: 0.1em; }
 
 @media (max-width: 900px) {
   .history-layout { grid-template-columns: 1fr; }

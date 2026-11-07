@@ -6,11 +6,11 @@
 }
 .feature-list__icon { font-size:1.4rem; flex-shrink:0; margin-top:0.1rem; }
 .feature-list__title { font-family:var(--font-display); font-weight:700; font-size:0.95rem; margin-bottom:0.2rem; }
-.feature-list__desc { font-size:0.875rem; color:var(--khaki); line-height:1.65; }
+.feature-list__desc { font-size:0.9rem; color:var(--khaki); line-height:1.65; }
 .photo-full {
   aspect-ratio:16/10; background:var(--aged);
   display:flex; align-items:center; justify-content:center;
-  font-family:var(--font-label); font-size:11px; letter-spacing:0.2em;
+  font-family:var(--font-label); font-size:12px; letter-spacing:0.2em;
   color:var(--khaki); text-align:center; padding:1rem;
   margin-bottom:1.5rem;
 }
