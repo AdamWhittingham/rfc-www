@@ -1,8 +1,35 @@
 # 95th Bomb Group Heritage — Red Feather Club Website
 
-A static flat-file website for the 95th Bomb Group Heritage Association.
-Built with vanilla HTML, CSS and JavaScript — no build step required.
-Deployable to Amazon S3, Cloudflare Pages, Netlify, GitHub Pages, or any static host.
+The website for the 95th Bomb Group Heritage Association, built with
+[Hugo](https://gohugo.io). Hugo turns the templates, content and data files in
+this repo into a plain static site in `public/`, which can be hosted on Amazon
+S3, Cloudflare Pages, Netlify, GitHub Pages or any static host.
+
+The homepage's "Latest News" tabs pull the most recent posts from the official
+Facebook Page and Instagram account at build time (see
+[Facebook & Instagram](#facebook--instagram)).
+
+---
+
+## Development
+
+You need Hugo 0.146 or newer (`brew install hugo`). The WordPress theme needs
+PHP to lint, which is managed with [asdf](https://asdf-vm.com) and pinned in
+`.tool-versions`.
+
+```bash
+make serve    # live-reloading preview on http://localhost:1313
+make build    # build the site into public/
+make init     # one-time: install the pinned PHP via asdf (compiles from source)
+make lint     # php -l over every file in the theme
+make zip      # rebuild wordpress-theme/red-feather-club.zip
+make help     # list all targets
+```
+
+`make init` runs `make deps` first, which installs the Homebrew libraries the
+PHP build needs (already-installed formulae are skipped). To pin a different
+PHP line, delete the `php` entry from `.tool-versions` and run
+`make init PHP_SERIES=8.4`.
 
 ---
 
@@ -10,69 +37,70 @@ Deployable to Amazon S3, Cloudflare Pages, Netlify, GitHub Pages, or any static 
 
 ```
 rfc-www/
-├── index.html              # Homepage
+├── hugo.toml               # Site config: menu, social accounts, contact details
+├── content/                # One file per page (title, description, which layout)
+│   ├── _index.md           # Homepage
+│   └── pages/              # history, museum, events, gallery, contact, support
+├── layouts/
+│   ├── baseof.html         # Page shell: <head>, nav, footer, lightbox, script
+│   ├── home.html           # Homepage
+│   ├── history.html …      # One layout per page, holding that page's markup
+│   └── _partials/          # Nav, footer, event rows, social feed fetchers/cards
+├── data/
+│   ├── events.yaml         # ← EDIT EVENTS HERE
+│   ├── gallery.yaml        # ← ADD GALLERY PHOTOS HERE
+│   └── social.yaml         # Fallback posts used when the social APIs aren't available
 ├── css/
-│   └── style.css           # All styles — design system, components, layout
+│   ├── style.css           # Design system, shared components, layout
+│   └── pages/              # Styles used by a single page
 ├── js/
-│   └── main.js             # Navigation, tabs, lightbox, scroll animations
-├── images/                 # ← ADD YOUR PHOTOS HERE
-│   ├── gallery/            # Gallery photos
-│   ├── history/            # Historical photographs
-│   ├── museum/             # Museum interior/exterior
-│   └── events/             # Event photographs
-└── pages/
-    ├── history.html        # Our Past — history & timeline
-    ├── museum.html         # The Museum
-    ├── events.html         # Forthcoming Events
-    ├── gallery.html        # Photo Gallery
-    ├── contact.html        # Contact & Find Us
-    └── support.html        # Support Us
+│   └── main.js             # Navigation, tabs, gallery filter, lightbox, scroll animations
+└── images/                 # ← ADD YOUR PHOTOS HERE (gallery/, history/, museum/, events/)
 ```
+
+`images/` is published as it is. Stylesheets and `main.js` are minified and
+published with a content hash in the file name (such as
+`style.min.b83f62….css`), so visitors' browsers always fetch the latest version
+after a change. Reference them only through `layouts/baseof.html` and the
+`styles` front matter, never by a hard-coded path. The built site keeps the old URLs (`/index.html`, `/pages/events.html` and so on), so existing links still work.
 
 ---
 
-## Adding Photos
+## Editing Content
 
-### To the Homepage Hero
-Edit `index.html` and find the `.hero__photos` section. Replace each placeholder div:
-```html
-<!-- Before -->
-<div class="hero__photo"><div class="hero__photo-placeholder">Photo</div></div>
-
-<!-- After -->
-<div class="hero__photo"><img src="images/hero-1.jpg" alt="The Red Feather Club"></div>
+### Events
+Edit `data/events.yaml`. Each event looks like this:
+```yaml
+- date: 2026-07-26
+  group: open            # which list on the Events page (open | evening)
+  tag: open              # label colour: open (green) | evening (red) | special (gold)
+  label: Open Day        # optional; defaults from the tag
+  name: Museum Open Day
+  time: 10am – 4pm · Free Entry
+  desc: Optional longer description shown on the Events page.
 ```
-Recommended: 3 landscape photos, at least 1200px wide.
+The Events page lists every event. The homepage shows the next five that are
+still in the future **at the time the site was built**, so rebuild the site
+regularly (see [Keeping the feeds fresh](#keeping-the-feeds-fresh)).
 
-### To the Homepage Gallery Mosaic
-In `index.html`, find `.gallery-mosaic`. Replace each `.gallery-cell__placeholder` div:
-```html
-<!-- Before -->
-<div class="gallery-cell" data-lightbox="">
-  <div class="gallery-cell__placeholder">📷</div>
-</div>
-
-<!-- After -->
-<div class="gallery-cell" data-lightbox="../images/gallery/photo-full.jpg">
-  <img src="images/gallery/photo-thumb.jpg" alt="Description of photo">
-</div>
+### Gallery
+Put the image in `images/gallery/` and add an entry to `data/gallery.yaml`:
+```yaml
+- src: /images/gallery/exterior.jpg
+  full: /images/gallery/exterior-large.jpg   # optional, for the lightbox
+  alt: The Red Feather Club from the road
+  caption: The Red Feather Club — Horham
+  category: site                             # site | museum | events | historical
 ```
+The first eight photos also fill the homepage mosaic. Entries without `src`
+show a placeholder.
 
-### To the Gallery Page
-In `pages/gallery.html`, replace `.photo-placeholder` divs with `<img>` tags:
-```html
-<!-- Before -->
-<div class="photo-item" data-lightbox="">
-  <div class="photo-placeholder">...</div>
-  <span class="photo-caption">Caption</span>
-</div>
-
-<!-- After -->
-<div class="photo-item" data-lightbox="../images/gallery/photo-full.jpg">
-  <img src="../images/gallery/photo.jpg" alt="Description">
-  <span class="photo-caption">Your caption here</span>
-</div>
-```
+### Page text
+Each page's markup lives in its layout (`layouts/history.html`,
+`layouts/museum.html` and so on), and its title and meta description in the
+matching file under `content/pages/`. The nav is the `[[menus.main]]` list in
+`hugo.toml`; the footer is `layouts/_partials/footer.html`. Both are shared by
+every page.
 
 ### Image Tips
 - Use **WebP** format for best performance (convert with Squoosh.app — free)
@@ -82,32 +110,153 @@ In `pages/gallery.html`, replace `.photo-placeholder` divs with `<img>` tags:
 
 ---
 
-## Customisation
+## Facebook & Instagram
 
-### Updating Events
-Edit `pages/events.html` and `index.html`. Each event follows this pattern:
-```html
-<div class="event-row">
-  <div class="event-badge">
-    <span class="event-badge__day">26</span>
-    <span class="event-badge__month">Jul</span>
-  </div>
-  <div class="event-details">
-    <span class="event-details__tag tag--open">Open Day</span>
-    <div class="event-details__name">Museum Open Day</div>
-    <div class="event-details__time">10am – 4pm · Free Entry</div>
-  </div>
-</div>
+The "Latest News" tabs on the homepage show the three latest posts from the
+Facebook Page and the Instagram account. They're fetched from Meta's Graph API
+**when the site is built**, so visitors' browsers never talk to Meta and the
+images are served from this site.
+
+Facebook links and buttons across the site go to the
+[95thBG group](https://www.facebook.com/groups/95thBG/) (`facebook.url` in
+`hugo.toml`), but the feed is read from the association's Facebook **Page**
+(`facebook.pageID`), because Meta removed API access to Groups in 2024.
+
+The build looks for a Page access token in the `RFC_META_TOKEN` environment
+variable. Without it (or if the API call fails, in which case the build prints a
+warning) the tabs fall back to the posts in `data/social.yaml`.
+
+### Creating the Meta token
+
+The build needs a **Page access token** for the 95th Bomb Group Heritage
+Facebook Page. Created as below, it doesn't expire, so this is a one-off job
+(see [When the token stops working](#when-the-token-stops-working)). It takes
+about 20 minutes.
+
+**Before you start**, you need:
+- A personal Facebook account with **full control** of the Page (Page
+  settings → Page setup → Page access).
+- The Instagram account switched to a **Business** or **Creator** account and
+  **linked to the Facebook Page**. In the Instagram app go to Settings →
+  Account type and tools, then link the Page from the Page's settings under
+  Linked accounts. The Instagram tab can't fetch posts without this link.
+
+**1. Register as a Meta developer.** Go to
+[developers.facebook.com](https://developers.facebook.com), log in with the
+Facebook account that manages the Page, and choose **Get Started**. Meta may ask
+you to verify a phone number.
+
+**2. Create an app.** Choose **My Apps → Create App** and call it something like
+"Red Feather Club website". When asked what the app is for, choose **Other**,
+then the **Business** app type. Meta renames these options from time to time;
+pick whichever lets you manage a Page and its Instagram account. Leave the app
+in **Development** mode. It never needs to go live or through App Review,
+because the only account using it is an admin of both the app and the Page.
+
+**3. Note the app's ID and secret.** Under **App settings → Basic**, copy the
+**App ID** and the **App Secret** (choose Show). Treat the secret like a
+password.
+
+**4. Generate a short-lived user token.** Open the
+[Graph API Explorer](https://developers.facebook.com/tools/explorer/):
+1. Under **Meta App**, select your new app.
+2. Under **User or Page**, choose **User Token**.
+3. Under **Permissions**, add `pages_show_list`, `pages_read_engagement`,
+   `instagram_basic` and `business_management`.
+4. Choose **Generate Access Token**. In the pop-up, select the 95th Bomb Group
+   Heritage Page and its Instagram account, then approve.
+5. Copy the token from the **Access Token** box. It lasts about an hour.
+
+These permissions only allow reading: the token can't post to the Page or
+Instagram.
+
+**5. Exchange it for a long-lived user token.** Run this in a terminal,
+replacing the three values in capitals. It returns an `access_token` that lasts
+about 60 days.
+```bash
+curl -G https://graph.facebook.com/v23.0/oauth/access_token \
+  -d grant_type=fb_exchange_token \
+  -d client_id=APP_ID \
+  -d client_secret=APP_SECRET \
+  -d fb_exchange_token=SHORT_LIVED_TOKEN
 ```
-Tag classes: `tag--open` (green), `tag--evening` (red), `tag--special` (gold)
+(The [Access Token Debugger](https://developers.facebook.com/tools/debug/accesstoken/)
+does the same thing: paste the token, choose **Debug**, then **Extend Access
+Token**.)
 
-### Updating Social Feed Posts
-The Facebook and Instagram cards in `index.html` are static HTML.
-To update them, edit the `.feed-card` blocks in the "Latest News" section.
+**6. Get the Page token.** Ask for the Pages you manage, using the long-lived
+token from step 5:
+```bash
+curl -G https://graph.facebook.com/v23.0/me/accounts \
+  -H "Authorization: Bearer LONG_LIVED_USER_TOKEN"
+```
+Find the entry whose `id` is `61554777124268` (the 95th Bomb Group Heritage
+Page). Its `access_token` is the **Page token**. Because it was made from a
+long-lived user token, it doesn't expire.
 
-For a **live feed** without a server:
-- Use the **"Live Feed"** tab — paste in the official Facebook Page Plugin embed code and/or a LightWidget/SnapWidget Instagram embed
-- Sign up free at [lightwidget.com](https://lightwidget.com) for a hosted Instagram feed widget
+**7. Check it.** Paste the Page token into the
+[Access Token Debugger](https://developers.facebook.com/tools/debug/accesstoken/).
+It should show **Type: Page**, **Expires: Never**, and the four permissions
+from step 4. Then check it can read both accounts:
+```bash
+export RFC_META_TOKEN=PAGE_TOKEN
+curl -G "https://graph.facebook.com/v23.0/61554777124268/posts?fields=message&limit=1" \
+  -H "Authorization: Bearer $RFC_META_TOKEN"
+curl -G "https://graph.facebook.com/v23.0/61554777124268?fields=instagram_business_account" \
+  -H "Authorization: Bearer $RFC_META_TOKEN"
+```
+The first should return the latest post. The second should return an
+`instagram_business_account` with an `id`. If it doesn't, the Instagram account
+isn't linked to the Page (see "Before you start").
+
+**8. Store it.** Add the Page token as a secret environment variable called
+`RFC_META_TOKEN` wherever the site is built (Cloudflare Pages or Netlify
+environment variables, or a CI secret). Never commit it to the repository, and
+don't send it by email or chat. The short- and long-lived user tokens from
+steps 4 and 5 aren't needed any more and can be discarded.
+
+### When the token stops working
+
+When the token is missing or rejected, the build still succeeds. It prints a
+warning starting `social: Graph API request failed` and shows the posts from
+`data/social.yaml` instead. The Page token stops working if the person who
+created it:
+- changes their Facebook password,
+- loses full control of the Page,
+- removes the app under Facebook Settings → Business integrations, or
+- deletes the app.
+
+To fix it, repeat steps 4 to 8 (the app from steps 2 and 3 can be reused). If
+the association uses a Meta Business portfolio, a **system user** token created
+in Business Settings doesn't depend on any one person's account, so it is a
+sturdier option for the long term.
+
+To try it locally:
+```bash
+RFC_META_TOKEN=... make build
+```
+
+Facebook links across the site go to the group (`facebook.url`). The feed reads
+from the Page (`facebook.pageID`) because Meta no longer offers API access to
+Groups.
+
+The Page ID, the Graph API version and how many posts to show are under
+`[params.social]` in `hugo.toml`. The Instagram account ID is looked up from
+the Page automatically; set `instagram.userID` to skip that lookup. Graph API
+versions are retired roughly two years after release, so bump `graphURL` when
+Meta announces the end of the version in use.
+
+### Keeping the feeds fresh
+Because posts are fetched at build time, the feeds only change when the site is
+rebuilt. Schedule a rebuild, for example once an hour or once a day:
+- **Cloudflare Pages / Netlify:** create a deploy hook and call it from a
+  scheduled job (a Cloudflare Worker cron trigger, or any cron service).
+- **GitHub Actions:** a workflow with `on: schedule` that runs `hugo --minify`
+  and deploys `public/`.
+
+---
+
+## Customisation
 
 ### Colours & Fonts
 All colours are CSS variables in `css/style.css`:
@@ -124,97 +273,121 @@ The palette is now rooted in authentic 1943 USAAF colours:
 ```
 
 ### Logo / Emblem
-Replace the placeholder emblem in the nav:
+Replace the placeholder emblem in `layouts/_partials/nav.html`:
 ```html
 <!-- Find this in the nav: -->
 <div class="nav__emblem-placeholder">95<br>BG</div>
 
 <!-- Replace with: -->
-<img src="images/logo.png" alt="95th Bomb Group Heritage Association logo">
+<img src="{{ "images/logo.png" | relURL }}" alt="95th Bomb Group Heritage Association logo">
 ```
 
 ---
 
-## Contact Form (S3 / Static Hosting)
+## Contact
 
-The contact form uses [Formspree](https://formspree.io) — free for up to 50 submissions/month.
+The Contact page links to the enquiries address set as `email` in `hugo.toml`.
+To use a form service such as [Formspree](https://formspree.io),
+[Netlify Forms](https://www.netlify.com/products/forms/) or
+[Web3Forms](https://web3forms.com) instead, edit the form in
+`layouts/contact.html`.
 
-1. Sign up at [formspree.io](https://formspree.io)
-2. Create a new form and copy your form ID
-3. In `pages/contact.html`, update the form action:
-```html
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-```
-
-Alternatives: [Netlify Forms](https://www.netlify.com/products/forms/) (if hosting on Netlify), [Web3Forms](https://web3forms.com) (free).
+The map is a Google Maps embed in the same file: on
+[maps.google.com](https://maps.google.com) search for the address, choose
+**Share → Embed a map**, and replace the `<iframe>`.
 
 ---
 
 ## Deployment
 
-### Amazon S3
-1. Create an S3 bucket with **static website hosting** enabled
-2. Set the bucket policy to allow public read access
-3. Upload all files maintaining the folder structure
-4. Set `index.html` as the index document
-5. (Optional) Add CloudFront CDN in front for HTTPS and caching
-6. (Optional) Set up Route 53 for a custom domain
-
-```bash
-# Example using AWS CLI:
-aws s3 sync . s3://your-bucket-name --delete --exclude ".git/*" --exclude "README.md"
-```
+Every host needs the same two settings: build command `hugo --minify` and
+output directory `public`. Set `HUGO_VERSION` to a version of 0.146 or newer
+where the host asks for one, and add `RFC_META_TOKEN` as a secret environment
+variable for the social feeds.
 
 ### Cloudflare Pages (Recommended — free HTTPS, global CDN)
-1. Push this folder to a GitHub/GitLab repository
-2. Go to [pages.cloudflare.com](https://pages.cloudflare.com)
-3. Connect your repo — no build command needed, output directory is `/`
-4. Done — automatic deploys on every push
+1. Push this repository to GitHub/GitLab
+2. In [pages.cloudflare.com](https://pages.cloudflare.com) connect the repo and choose the **Hugo** preset
+3. Add `HUGO_VERSION` and `RFC_META_TOKEN` under Settings → Environment variables
 
-### Netlify (Also free, easy)
-1. Drag and drop the `rfc-www` folder onto [app.netlify.com](https://app.netlify.com)
-2. Done — you'll get a live HTTPS URL instantly
-3. Connect to GitHub for automatic deploys
+### Netlify
+1. Connect the repository in [app.netlify.com](https://app.netlify.com)
+2. Build command `hugo --minify`, publish directory `public`
+3. Add `HUGO_VERSION` and `RFC_META_TOKEN` under Site configuration → Environment variables
 
-### GitHub Pages
-1. Push to a GitHub repo
-2. Go to Settings → Pages → Source: main branch / root
-3. Your site will be live at `https://yourusername.github.io/repo-name`
+### Amazon S3
+Build locally or in CI, then upload `public/`:
+```bash
+RFC_META_TOKEN=... hugo --minify
+aws s3 sync public/ s3://your-bucket-name --delete
+```
+Enable static website hosting with `index.html` as the index document, and
+optionally put CloudFront in front for HTTPS.
+
+### GitHub Pages (current)
+The site is published to `https://adamwhittingham.github.io/rfc-www/` by
+`.github/workflows/deploy.yml` on every push to `master` or `hugo`. Both
+branches deploy to the same URL, so **whichever branch was pushed last is
+live**. A branch with a `hugo.toml` is built with Hugo, which picks up the
+`/rfc-www/` sub-path automatically; other branches publish the flat HTML files
+as they are. You can also start a deploy by hand from the Actions tab
+(**Deploy to GitHub Pages → Run workflow**, choosing the branch).
+
+One-time setup in the repository settings:
+1. **Settings → Pages → Build and deployment → Source:** choose
+   **GitHub Actions** (instead of "Deploy from a branch").
+2. **Settings → Environments → github-pages → Deployment branches and tags:**
+   add `hugo` alongside `master`. Without this, deploys from `hugo` are
+   rejected.
+3. **Settings → Secrets and variables → Actions → New repository secret:**
+   name `RFC_META_TOKEN`, value the Page token from
+   [Creating the Meta token](#creating-the-meta-token).
+
+The feeds only refresh when the site is rebuilt. To rebuild on a schedule, add
+a `schedule:` trigger to the workflow once the Hugo site is on `master`
+(GitHub only runs scheduled workflows from the default branch).
 
 ---
 
-## Google Maps Embed
+## WordPress Theme
 
-In `pages/contact.html`, replace the placeholder iframe with a real embed:
-1. Go to [maps.google.com](https://maps.google.com)
-2. Search for the address: *Horham Road, Denham, Eye, IP21 5DG*
-3. Click **Share** → **Embed a map** → Copy the iframe code
-4. Replace the existing `<iframe>` in contact.html
+The same design system is packaged as an installable WordPress theme in
+`wordpress-theme/`.
 
----
-
-## Facebook Page Plugin
-
-In `index.html`, in the "Live Feed" tab panel, replace the placeholder with:
-```html
-<div class="fb-page"
-  data-href="https://www.facebook.com/people/95th-Bomb-Group-Heritage/61554777124268/"
-  data-tabs="timeline"
-  data-width="500"
-  data-height="600"
-  data-small-header="true"
-  data-adapt-container-width="true"
-  data-hide-cover="false"
-  data-show-facepile="false">
-</div>
 ```
-And add this before `</body>`:
-```html
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v18.0">
-</script>
+wordpress-theme/
+├── red-feather-club/        # the theme source
+└── red-feather-club.zip     # ready to upload via Appearance → Themes → Add New
 ```
+
+Install: **Appearance → Themes → Add New → Upload Theme**, choose
+`red-feather-club.zip`, Install Now, Activate. Then
+**Appearance → Customize → Red Feather Club** for the hero, announcement strip,
+footer details and social links, and **Settings → Permalinks → Save Changes** so
+the `/events/` and `/gallery/` archives resolve.
+
+What it maps onto WordPress:
+
+| Flat-file site | WordPress |
+| --- | --- |
+| `css/style.css` + `css/pages/*.css` | theme `style.css` (one consolidated stylesheet) + `theme.json` palette |
+| `js/main.js` | `assets/js/main.js` (plus core Gallery/Image blocks wired to the lightbox) |
+| Hero, merch strip, footer text | Customizer → Red Feather Club |
+| `layouts/_partials/nav.html` / `footer.html` | `header.php` / `footer.php` and four menu locations |
+| `data/events.yaml` | **Events** post type (date, time line, colour tag) |
+| `data/gallery.yaml` | **Gallery Photos** post type + categories, filterable grid |
+| Intro cards, CTA band, timeline, stat block… | 11 block patterns under the "Red Feather Club" category |
+
+Rebuild the zip after editing the theme:
+
+```bash
+cd wordpress-theme && rm -f red-feather-club.zip && zip -rq red-feather-club.zip red-feather-club -x '*.DS_Store'
+```
+
+The flat-file site remains the source of truth for the palette: the theme's
+`style.css` carries `css/style.css` verbatim (minus the Google Fonts `@import`,
+which the theme enqueues properly), with the page-level component styles and the
+WordPress-specific rules appended after it.
 
 ---
 
@@ -224,7 +397,7 @@ Chrome, Firefox, Safari, Edge (all modern versions). No polyfills required.
 ## Performance Notes
 - All CSS and JS is loaded from local files — no external dependencies at runtime
 - Google Fonts are loaded via a single `@import` — can be replaced with self-hosted fonts for offline use
-- Add `loading="lazy"` to all `<img>` tags for better mobile performance
+- Gallery and social images are lazy-loaded; social post images are resized to 800×600 WebP at build time
 
 ---
 
