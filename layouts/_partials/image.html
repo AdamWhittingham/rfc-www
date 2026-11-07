@@ -1,0 +1,24 @@
+{{- /*
+  Resizes a photo from images/ and returns a dict:
+    src, width, height   the display size (default 800px wide)
+    full                 a larger copy for the lightbox (1600px wide)
+  Usage: partial "image.html" (dict "src" "images/site/x.jpg" "width" 1200)
+  Images are never enlarged, and are converted to WebP. Returns an empty dict
+  (and warns) when the file doesn't exist.
+*/ -}}
+{{- $out := dict -}}
+{{- $path := strings.TrimPrefix "/" .src -}}
+{{- with resources.Get $path -}}
+  {{- if eq .MediaType.SubType "svg" -}}
+    {{- $out = dict "src" .RelPermalink "full" .RelPermalink -}}
+  {{- else -}}
+    {{- $w := math.Min (int ($.width | default 800)) .Width -}}
+    {{- $fw := math.Min 1600 .Width -}}
+    {{- $img := .Process (printf "resize %dx webp" (int $w)) -}}
+    {{- $full := .Process (printf "resize %dx webp" (int $fw)) -}}
+    {{- $out = dict "src" $img.RelPermalink "width" $img.Width "height" $img.Height "full" $full.RelPermalink -}}
+  {{- end -}}
+{{- else -}}
+  {{- warnf "image.html: %q not found under images/" $path -}}
+{{- end -}}
+{{- return $out -}}

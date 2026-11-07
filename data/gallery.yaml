@@ -1,12 +1,17 @@
-# Photos for the Gallery page. The first eight also fill the homepage mosaic.
+# Photos for the Gallery page. The first eight also fill the homepage mosaic,
+# so keep a mix of subjects at the top.
 #
-#   src       image path under images/ (e.g. /images/gallery/exterior.jpg);
-#             leave it out to show a placeholder until a photo is added
-#   full      optional larger image for the lightbox (defaults to src)
-#   alt       description of the photo
+#   src       image under images/ (e.g. images/site/exterior.jpg). Any size;
+#             the build makes an 800px thumbnail and a 1600px lightbox copy.
+#             Leave it out to show a placeholder until a photo is added.
+#   alt       what the photo shows, for screen readers
 #   caption   optional caption shown on hover
+#   credit    optional photographer, shown after the caption
 #   category  site | museum | events | historical (the filter buttons)
 #   icon, label, height   placeholder appearance while src is empty
+#
+# Photos marked CHECK were taken from the old site without captions; the
+# wording is a best guess from the file name and needs confirming.
 
 categories:
   - id: site
@@ -19,53 +24,174 @@ categories:
     name: Historical
 
 photos:
-  - category: site
-    caption: The Red Feather Club — Horham
-    icon: 🏛️
-    label: The Red Feather Club exterior
-    height: 280
+  # --- First eight: the homepage mosaic ---
+  - src: images/site/aerial-red-feather-club.jpg
+    category: site
+    alt: Aerial view of the Red Feather Club's restored Nissen huts and gardens
+    caption: The Red Feather Club from the air
+    credit: Richard Flagg
 
-  - category: museum
+  - src: images/museum/museum-interior.jpg
+    category: museum
+    alt: Display cases and framed photographs beneath an American flag inside the museum
     caption: Inside the Red Feather Club
-    icon: 🎖️
-    label: Museum interior
-    height: 200
 
-  - category: historical
-    caption: B-17 of the 95th Bomb Group, ca. 1944
-    icon: ✈️
-    label: Historical photograph
-    height: 240
+  - src: images/history/b17-44-8260.jpg
+    category: historical
+    alt: A B-17 Flying Fortress in flight, with the Square B tail marking of the 95th
+    caption: B-17 44-8260 of the 95th Bomb Group  # CHECK
 
-  - category: events
-    caption: Evening dance at the Red Feather Club
-    icon: 🎵
-    label: Event photograph
-    height: 220
+  - src: images/events/dance-floor.jpg
+    category: events
+    alt: Couples in 1940s dress dancing in the club
+    caption: An evening dance at the Red Feather Club
 
-  - category: site
-    caption: The Memorial Garden, Horham
-    icon: 🌿
-    label: Memorial garden
-    height: 300
+  - src: images/site/memorial-flagpole.jpg
+    category: site
+    alt: The 95th Bomb Group memorial stone beneath a flagpole flying the American flag
+    caption: The memorial at Horham
 
-  - category: museum
-    icon: 📸
-    label: Museum display
-    height: 200
+  - src: images/museum/mural-courtship.jpg
+    category: museum
+    alt: A wartime mural painted on the brick wall of the club
+    caption: One of the original wartime murals in the club
 
-  - category: historical
-    icon: 👨‍✈️
-    label: Crew photograph
-    height: 260
+  - src: images/history/gilger-mumford-berlin-raid-1944.jpg
+    category: historical
+    alt: Officers in flying gear shaking hands beside an aircraft
+    caption: Group commander Col. Gilger congratulates Lt Col. Mumford on the first Berlin raid, 4 March 1944
 
-  - category: events
-    caption: Americana Day 2025
-    icon: 🎪
-    label: Americana Day
-    height: 220
+  - src: images/museum/airfield-model.jpg
+    category: museum
+    alt: A scale model of the Horham airfield and its buildings
+    caption: Model of AAF Station 119, Horham  # CHECK
 
-  - category: site
-    icon: 📷
-    label: Site photograph
-    height: 200
+  # --- The site ---
+  - src: images/site/aerial-horham-airfield.jpg
+    category: site
+    alt: Aerial view across Suffolk farmland towards the Red Feather Club
+    caption: Horham and the surrounding countryside
+    credit: Richard Flagg
+
+  - src: images/site/restored-buildings.jpg
+    category: site
+    alt: The restored Nissen huts and path at the Red Feather Club
+    caption: The restored buildings
+
+  - src: images/site/memorial-cozens.jpg
+    category: site
+    alt: A black stone memorial bench inscribed to Lt Col. Robert C. Cozens
+    caption: Memorial to Lt Col. Robert C. Cozens
+
+  - src: images/site/restoration-nissen-hut.jpg
+    category: site
+    alt: A Nissen hut with new cladding during restoration
+    caption: Restoring the Nissen huts
+
+  - src: images/site/restoration-nissen-hut-interior.jpg
+    category: site
+    alt: The inside of a Nissen hut stripped back during restoration
+    caption: Inside a Nissen hut during restoration
+
+  # --- Museum interior ---
+  - src: images/museum/museum-displays.jpg
+    category: museum
+    alt: Glass display cases of artefacts in the museum
+    caption: Museum displays
+
+  - src: images/museum/club-room-fireplace.jpg
+    category: museum
+    alt: A brick fireplace flanked by flags and the 95th's squadron shields
+    caption: The club room
+
+  - src: images/museum/roll-of-honour.jpg
+    category: museum
+    alt: The Roll of Honour boards with a folded flag and poppy wreath
+    caption: The Roll of Honour
+
+  - src: images/museum/mural-jugglers.jpg
+    category: museum
+    alt: A wartime mural of performers painted on the club's brick wall
+    caption: Wartime mural
+
+  - src: images/museum/mural-dancers.jpg
+    category: museum
+    alt: A faded wartime mural of a line of dancers
+    caption: Wartime mural
+
+  - src: images/museum/airfield-model-detail.jpg
+    category: museum
+    alt: Close-up of the airfield model showing hangars and trees
+    caption: Detail of the airfield model
+
+  - src: images/museum/uniform-pilot.jpg
+    category: museum
+    alt: A USAAF officer's tunic with pilot's wings and medal ribbons
+    caption: Pilot's service tunic
+
+  - src: images/museum/jacket-chuck.jpg
+    category: museum
+    alt: A leather flying jacket painted with the name Chuck and a squadron emblem
+    caption: Painted A-2 flying jacket
+
+  - src: images/museum/uniform-eighth-air-force.jpg
+    category: museum
+    alt: A uniform tunic with the Eighth Air Force shoulder patch
+    caption: Eighth Air Force uniform
+
+  - src: images/museum/uniform-sergeant.jpg
+    category: museum
+    alt: A sergeant's uniform and cap on a mannequin in a display case
+    caption: Sergeant's uniform
+
+  - src: images/museum/jacket-95th.jpg
+    category: museum
+    alt: A worn leather flying jacket with a 95th patch and a squadron emblem
+    caption: Flying jacket with the 95th's patch
+
+  - src: images/museum/uniform-officer.jpg
+    category: museum
+    alt: An officer's uniform in a glass display case
+    caption: Officer's uniform
+
+  # --- Events ---
+  - src: images/events/dance-nissen-hut.jpg
+    category: events
+    alt: Dancers in 1940s dress under bunting in a Nissen hut
+    caption: Swing dancing in the Nissen hut
+
+  - src: images/events/school-visit-airfield-model.jpg
+    category: events
+    alt: A volunteer showing schoolchildren the airfield model
+    caption: A school visit
+
+  - src: images/events/school-visit-museum.jpg
+    category: events
+    alt: Schoolchildren exploring a room laid out as a wartime office
+    caption: A school visit
+
+  - src: images/events/school-visit-outdoors.jpg
+    category: events
+    alt: A school group gathered by a wartime trench on the site
+    caption: A school visit
+
+  # --- Historical ---
+  - src: images/history/berlin-raid-damage-1944.jpg
+    category: historical
+    alt: A crewman beside a hole torn in an aircraft by flak
+    caption: Damage from the first Berlin raid, 4 March 1944. The crewman beside it escaped unhurt.
+
+  - src: images/history/bucklin-walter-crew.jpg
+    category: historical
+    alt: Five airmen in flying jackets standing outside a hut
+    caption: Walter Bucklin with four crewmates  # CHECK
+
+  - src: images/history/b17-formation-mission-304.jpg
+    category: historical
+    alt: B-17s flying in formation, seen past an engine from another aircraft
+    caption: B-17s in formation on mission 304  # CHECK
+
+  - src: images/history/b17-43-39152-bombing.jpg
+    category: historical
+    alt: A B-17 releasing bombs in flight
+    caption: B-17 43-39152 releasing its bombs  # CHECK

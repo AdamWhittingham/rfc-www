@@ -1,0 +1,14 @@
+{{- /* A photo with caption that opens in the lightbox.
+       Context: a photo dict (src, alt, caption, credit, ratio), as used in
+       page front matter `photos:`. `ratio` crops it, e.g. "4/3". */ -}}
+{{- with partial "image.html" (dict "src" .src "width" (.width | default 1000)) }}
+{{- $img := . }}
+<figure class="photo-figure">
+  <div class="photo-figure__img" data-lightbox="{{ $img.full }}"{{ with $.ratio }} style="aspect-ratio:{{ . }};"{{ end }}>
+    <img src="{{ $img.src }}" width="{{ $img.width }}" height="{{ $img.height }}" alt="{{ $.alt }}" loading="lazy">
+  </div>
+  {{- with partial "photo-caption.html" $ }}
+  <figcaption class="photo-figure__caption">{{ . }}</figcaption>
+  {{- end }}
+</figure>
+{{- end }}

@@ -56,10 +56,11 @@ rfc-www/
 │   └── pages/              # Styles used by a single page
 ├── js/
 │   └── main.js             # Navigation, tabs, gallery filter, lightbox, scroll animations
-└── images/                 # ← ADD YOUR PHOTOS HERE (gallery/, history/, museum/, events/)
+└── images/                 # ← ADD YOUR PHOTOS HERE (site/, museum/, events/, history/, logo/)
 ```
 
-`images/` is published as it is. Stylesheets and `main.js` are minified and
+Photos in `images/` are resized to WebP when the site is built, and only the
+sizes a page uses are published (never the originals). Stylesheets and `main.js` are minified and
 published with a content hash in the file name (such as
 `style.min.b83f62….css`), so visitors' browsers always fetch the latest version
 after a change. Reference them only through `layouts/baseof.html` and the
@@ -85,16 +86,30 @@ still in the future **at the time the site was built**, so rebuild the site
 regularly (see [Keeping the feeds fresh](#keeping-the-feeds-fresh)).
 
 ### Gallery
-Put the image in `images/gallery/` and add an entry to `data/gallery.yaml`:
+Put the image in the matching folder under `images/` and add an entry to
+`data/gallery.yaml`:
 ```yaml
-- src: /images/gallery/exterior.jpg
-  full: /images/gallery/exterior-large.jpg   # optional, for the lightbox
+- src: images/site/exterior.jpg
   alt: The Red Feather Club from the road
-  caption: The Red Feather Club — Horham
-  category: site                             # site | museum | events | historical
+  caption: The Red Feather Club, Horham   # optional, shown on hover
+  credit: Richard Flagg                   # optional, shown after the caption
+  category: site                          # site | museum | events | historical
 ```
-The first eight photos also fill the homepage mosaic. Entries without `src`
-show a placeholder.
+The build makes an 800px thumbnail and a 1600px copy for the lightbox. The
+first eight photos also fill the homepage mosaic. Entries without `src` show a
+placeholder.
+
+### Page photos
+The photos on the Museum and Our Past pages are listed in each page's front
+matter (`content/pages/museum.md`, `content/pages/history.md`):
+```yaml
+photos:
+  - src: images/museum/museum-interior.jpg
+    alt: Display cases and framed photographs inside the museum
+    caption: Inside the museum
+    credit: Optional photographer
+    ratio: 4/3        # optional crop; museum page only
+```
 
 ### Page text
 Each page's markup lives in its layout (`layouts/history.html`,
@@ -104,10 +119,11 @@ matching file under `content/pages/`. The nav is the `[[menus.main]]` list in
 every page.
 
 ### Image Tips
-- Use **WebP** format for best performance (convert with Squoosh.app — free)
-- Gallery thumbnails: max 800px wide
-- Full-size (lightbox) images: max 1600px wide
-- Keep file sizes under 300KB per image for fast loading on mobile
+- Add photos as JPEG or PNG at their original size; the build resizes them
+  and converts them to WebP.
+- Strip location data from phone photos before adding them, since the
+  originals are kept in the repository.
+- Always fill in `alt` with a short description of what the photo shows.
 
 ---
 
@@ -276,14 +292,9 @@ The palette is now rooted in authentic 1943 USAAF colours:
 ```
 
 ### Logo / Emblem
-Replace the placeholder emblem in `layouts/_partials/nav.html`:
-```html
-<!-- Find this in the nav: -->
-<div class="nav__emblem-placeholder">95<br>BG</div>
-
-<!-- Replace with: -->
-<img src="{{ "images/logo.png" | relURL }}" alt="95th Bomb Group Heritage Association logo">
-```
+The nav emblem is `images/logo/95th-bg-shield.png`, a crop of the full logo in
+`images/logo/95th-bg-logo.png`. Replace that file to change it; the nav falls
+back to a "95 BG" placeholder if it's missing.
 
 ---
 

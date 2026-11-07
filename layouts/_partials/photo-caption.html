@@ -1,0 +1,5 @@
+{{- /* Caption text for a photo dict: its caption, then "Photo: <credit>" if given. */ -}}
+{{- $parts := slice -}}
+{{- with .caption }}{{ $parts = $parts | append . }}{{ end -}}
+{{- with .credit }}{{ $parts = $parts | append (printf "Photo: %s" .) }}{{ end -}}
+{{- return (delimit $parts " · ") -}}

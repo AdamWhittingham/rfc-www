@@ -4,10 +4,12 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero" aria-label="Welcome">
   <div class="hero__img-fallback">
+      {{- with partial "image.html" (dict "src" "images/home-hero.JPG" "width" 1920) }}
       <img class="hero__img"
-           src="{{ "images/home-hero.JPG" | relURL }}"
-           alt="The Red Feather Club, Horham"
+           src="{{ .src }}" width="{{ .width }}" height="{{ .height }}"
+           alt="The Red Feather Club, Horham, from the air"
            fetchpriority="high">
+      {{- end }}
   </div>
 
   <div class="hero__overlay"></div>
@@ -200,9 +202,10 @@
   <div class="gallery-mosaic" style="max-width:var(--max-w); margin:0 auto; padding:0 2rem;" aria-label="Photo gallery">
     {{- range first 8 hugo.Data.gallery.photos }}
     {{- $photo := . }}
-    <div class="gallery-cell" data-lightbox="{{ with .full | default .src }}{{ strings.TrimPrefix "/" . | relURL }}{{ end }}">
-      {{- with .src }}
-      <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $photo.alt }}" loading="lazy">
+    {{- $img := cond (isset . "src") (partial "image.html" (dict "src" .src "width" 800)) dict }}
+    <div class="gallery-cell" data-lightbox="{{ $img.full }}">
+      {{- with $img.src }}
+      <img src="{{ . }}" width="{{ $img.width }}" height="{{ $img.height }}" alt="{{ $photo.alt }}" loading="lazy">
       {{- else }}
       <div class="gallery-cell__placeholder">📷</div>
       {{- end }}

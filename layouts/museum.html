@@ -10,9 +10,10 @@
 <section class="section">
   <div class="museum-grid">
     <div class="observe-fade">
-      <!-- Replace placeholder with real image -->
-      <div class="photo-full">ADD MAIN MUSEUM PHOTO HERE<br><small>images/museum/exterior.jpg</small></div>
-      <div class="photo-full" style="aspect-ratio:4/3;">ADD INTERIOR PHOTO HERE<br><small>images/museum/interior.jpg</small></div>
+      <!-- Photos are set in content/pages/museum.md -->
+      {{- range .Params.photos }}
+      {{ partial "figure.html" . }}
+      {{- end }}
     </div>
     <div>
       <div class="section-label observe-fade">The Experience</div>

@@ -11,8 +11,10 @@ disableKinds = ["taxonomy", "term", "section", "rss"]
   [module.hugoVersion]
     min = "0.146.0"
   # css/, js/ and images/ stay at the repo root (the WordPress theme mirrors
-  # css/style.css from there). CSS and JS are assets, published with a content
-  # hash in the file name (see baseof.html); images are published unchanged.
+  # css/style.css from there). All three are assets: CSS and JS are published
+  # with a content hash in the file name (see baseof.html), and photos are
+  # resized to WebP by _partials/image.html. Only images a page uses are
+  # published, never the originals.
   [[module.mounts]]
     source = "css"
     target = "assets/css"
@@ -21,7 +23,12 @@ disableKinds = ["taxonomy", "term", "section", "rss"]
     target = "assets/js"
   [[module.mounts]]
     source = "images"
-    target = "static/images"
+    target = "assets/images"
+
+[imaging]
+  resampleFilter = "Lanczos"
+  [imaging.webp]
+    quality = 80
 
 [security.funcs]
   getenv = ["^HUGO_", "^CI$", "^RFC_"]

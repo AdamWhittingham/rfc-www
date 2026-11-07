@@ -21,27 +21,22 @@
     {{- range hugo.Data.gallery.photos }}
     {{- $photo := . }}
 
-    <div class="photo-item" data-category="{{ .category }}" data-lightbox="{{ with .full | default .src }}{{ strings.TrimPrefix "/" . | relURL }}{{ end }}">
-      {{- with .src }}
-      <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $photo.alt }}" loading="lazy">
+    {{- $img := cond (isset . "src") (partial "image.html" (dict "src" .src "width" 800)) dict }}
+    <div class="photo-item" data-category="{{ .category }}" data-lightbox="{{ $img.full }}">
+      {{- with $img.src }}
+      <img src="{{ . }}" width="{{ $img.width }}" height="{{ $img.height }}" alt="{{ $photo.alt }}" loading="lazy">
       {{- else }}
       <div class="photo-placeholder" style="min-height:{{ .height | default 200 }}px;">
         <div class="photo-placeholder__icon">{{ .icon | default "📷" }}</div>
         <div class="photo-placeholder__label">{{ .label }}<br>Replace with real photo</div>
       </div>
       {{- end }}
-      {{- with .caption }}
+      {{- with partial "photo-caption.html" . }}
       <span class="photo-caption">{{ . }}</span>
       {{- end }}
     </div>
     {{- end }}
 
-  </div>
-
-  <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--aged); border-radius:4px; font-family: var(--font-label); font-size: 14px; color: var(--khaki); line-height:1.7;" class="observe-fade">
-    <strong style="color:var(--ink);">Adding Photos:</strong>
-    Place JPG/WebP files in <code style="color:var(--red);">images/gallery/</code> and add an entry for each to <code>data/gallery.yaml</code> with its <code>src</code>, <code>alt</code>, <code>category</code> and an optional <code>caption</code>.
-    Recommended max width: 1600px. Use WebP for best performance on S3/CDN hosting.
   </div>
 
 </section>

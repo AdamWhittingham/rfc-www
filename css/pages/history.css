@@ -63,3 +63,6 @@
   .history-layout { grid-template-columns: 1fr; }
   .history-layout .sidebar { order: -1; }
 }
+
+.history-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+@media (max-width: 600px) { .history-photos { grid-template-columns: 1fr; } }

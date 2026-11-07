@@ -2,8 +2,11 @@
 <nav class="nav" aria-label="Main navigation">
   <a class="nav__logo" href="{{ site.Home.RelPermalink }}">
     <div class="nav__emblem">
-      <!-- Replace with the real logo image -->
+      {{- with partial "image.html" (dict "src" "images/logo/95th-bg-shield.png" "width" 96) }}
+      <img src="{{ .src }}" width="{{ .width }}" height="{{ .height }}" alt="">
+      {{- else }}
       <div class="nav__emblem-placeholder">95<br>BG</div>
+      {{- end }}
     </div>
     <div class="nav__title">
       Red Feather Club
