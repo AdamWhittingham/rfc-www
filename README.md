@@ -141,7 +141,7 @@ Facebook links and buttons across the site go to the
 
 The build looks for a Page access token in the `RFC_META_TOKEN` environment
 variable. Without it (or if the API call fails, in which case the build prints a
-warning) the tabs fall back to the posts in `data/social.yaml`.
+warning) the tabs fall back to the posts in `data/social.yaml` (each can take a `photo` from `images/`).
 
 ### Creating the Meta token
 

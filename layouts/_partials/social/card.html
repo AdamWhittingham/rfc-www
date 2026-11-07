@@ -1,9 +1,11 @@
-{{- /* One feed card. Context: dict "post" (date, text, image, link, icon) "platform" (fb | ig) */ -}}
+{{- /* One feed card. Context: dict "post" (date, text, image or photo, link, icon) "platform" (fb | ig) */ -}}
 {{- $post := .post -}}
 {{- $fb := eq .platform "fb" -}}
+{{- $src := $post.image | default "" -}}
+{{- with $post.photo }}{{ $src = (partial "image.html" (dict "src" . "width" 800)).src }}{{ end -}}
 <article class="feed-card observe-fade">
   <div class="feed-card__img">
-    {{- with $post.image }}
+    {{- with $src }}
     <img src="{{ . | relURL }}" alt="" loading="lazy">
     {{- else }}
     <div class="feed-card__img-placeholder">{{ $post.icon | default "📷" }}</div>
