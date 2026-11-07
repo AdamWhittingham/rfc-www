@@ -56,6 +56,38 @@
 </div>
 
 
+<!-- ===================== NEXT EVENTS ===================== -->
+<section aria-label="Upcoming events" style="border-bottom:1px solid rgba(139,125,94,0.2);">
+  <div class="section">
+    <div class="events-grid">
+      <div class="observe-fade">
+        <div class="section-label">Diary Dates</div>
+        <h2 class="section-title">{{ hugo.Data.events.season }} Season</h2>
+        <p class="section-body">The museum opens on the last Sunday of each month, April to October, 10am–4pm. We also hold special evening events and educational visits throughout the year.</p>
+        <br>
+        <a href="{{ relref . "/pages/events" }}" class="btn btn--primary" style="margin-top:0.5rem;">Full Events Calendar</a>
+      </div>
+
+      <div class="observe-fade">
+        <div class="events-list">
+          {{- /* The next five events from data/events.yaml, as of the last build */}}
+          {{- $today := now.Format "2006-01-02" }}
+          {{- $upcoming := slice }}
+          {{- range sort hugo.Data.events.events "date" }}
+          {{- if ge (time.AsTime .date).Unix (time.AsTime $today).Unix }}{{ $upcoming = $upcoming | append . }}{{ end }}
+          {{- end }}
+          {{- range first 5 $upcoming }}
+          {{ partial "event-item.html" . }}
+          {{- else }}
+          <p class="section-body">Dates for the next season will be announced soon. Follow us on <a href="{{ $social.facebook.url }}" target="_blank" rel="noopener" style="color:var(--red);">Facebook</a> or <a href="{{ $social.instagram.url }}" target="_blank" rel="noopener" style="color:var(--red);">Instagram</a> to hear first.</p>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ===================== INTRO CARDS ===================== -->
 <div class="section" style="padding-bottom: 0;">
   <div class="observe-fade">
@@ -150,38 +182,6 @@
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<!-- ===================== NEXT EVENTS ===================== -->
-<section aria-label="Upcoming events">
-  <div class="section">
-    <div class="events-grid">
-      <div class="observe-fade">
-        <div class="section-label">Diary Dates</div>
-        <h2 class="section-title">{{ hugo.Data.events.season }} Season</h2>
-        <p class="section-body">The museum opens on the last Sunday of each month, April to October, 10am–4pm. We also hold special evening events and educational visits throughout the year.</p>
-        <br>
-        <a href="{{ relref . "/pages/events" }}" class="btn btn--primary" style="margin-top:0.5rem;">Full Events Calendar</a>
-      </div>
-
-      <div class="observe-fade">
-        <div class="events-list">
-          {{- /* The next five events from data/events.yaml, as of the last build */}}
-          {{- $today := now.Format "2006-01-02" }}
-          {{- $upcoming := slice }}
-          {{- range sort hugo.Data.events.events "date" }}
-          {{- if ge (time.AsTime .date).Unix (time.AsTime $today).Unix }}{{ $upcoming = $upcoming | append . }}{{ end }}
-          {{- end }}
-          {{- range first 5 $upcoming }}
-          {{ partial "event-item.html" . }}
-          {{- else }}
-          <p class="section-body">Dates for the next season will be announced soon. Follow us on <a href="{{ $social.facebook.url }}" target="_blank" rel="noopener" style="color:var(--red);">Facebook</a> or <a href="{{ $social.instagram.url }}" target="_blank" rel="noopener" style="color:var(--red);">Instagram</a> to hear first.</p>
-          {{- end }}
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
