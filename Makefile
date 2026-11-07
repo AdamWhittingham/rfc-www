@@ -4,6 +4,7 @@
 # wordpress-theme/ needs PHP to lint. PHP is managed with asdf and pinned in
 # .tool-versions.
 #
+#   make dev      build, serve and open the site in a browser
 #   make serve    live-reloading preview of the site
 #   make build    build the site into public/
 #   make init     one-time setup: install PHP via asdf
@@ -47,7 +48,7 @@ PHP_BUILD_ENV += PHP_CONFIGURE_OPTIONS="$(PHP_CONFIGURE_OPTIONS)" \
                  PHP_WITHOUT_PEAR=yes PHP_WITHOUT_PDO_PGSQL=yes
 endif
 
-.PHONY: help init deps php lint zip serve build hugo
+.PHONY: help init deps php lint zip dev serve build hugo
 
 help: ## Show the available targets
 	@echo "Red Feather Club — make targets:"
@@ -111,6 +112,9 @@ zip: ## Rebuild wordpress-theme/red-feather-club.zip from the theme source
 
 hugo:
 	@command -v hugo >/dev/null 2>&1 || { echo "No hugo on PATH — install it with 'brew install hugo'."; exit 1; }
+
+dev: hugo ## Build and serve the site with live reload, and open it in a browser
+	@hugo server --port $(PORT) --openBrowser
 
 serve: hugo ## Live-reloading preview of the site (override with PORT=8080)
 	@hugo server --port $(PORT)

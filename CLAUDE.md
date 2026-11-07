@@ -10,7 +10,8 @@ The website for the 95th Bomb Group Heritage Association (Red Feather Club), gen
 
 Use the `Makefile`:
 
-- `make serve` — `hugo server` with live reload on port 1313.
+- `make dev` — `hugo server` with live reload on port 1313, opened in the default browser.
+- `make serve` — the same without opening a browser.
 - `make build` — `hugo --minify` into `public/` (git-ignored). Set `RFC_META_TOKEN` to fetch real social posts.
 - `make init` — one-time toolchain setup: installs the PHP pinned in `.tool-versions` via asdf (compiles from source, several minutes) after `make deps` installs the Homebrew build prerequisites. asdf is assumed present.
 - `make lint` — `php -l` over every file in the WordPress theme. This is the only automated check in the repo; run it after touching any theme PHP.

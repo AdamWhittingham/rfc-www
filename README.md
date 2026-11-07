@@ -18,7 +18,8 @@ PHP to lint, which is managed with [asdf](https://asdf-vm.com) and pinned in
 `.tool-versions`.
 
 ```bash
-make serve    # live-reloading preview on http://localhost:1313
+make dev      # build, serve and open the site in your browser (live reload)
+make serve    # the same, without opening a browser
 make build    # build the site into public/
 make init     # one-time: install the pinned PHP via asdf (compiles from source)
 make lint     # php -l over every file in the theme
