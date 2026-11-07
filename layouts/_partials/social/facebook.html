@@ -1,0 +1,20 @@
+{{- /* Returns the latest Facebook Page posts as a list of cards
+       (date, text, image, link), falling back to data/social.yaml. */ -}}
+{{- $cfg := site.Params.social -}}
+{{- $posts := slice -}}
+{{- with $cfg.facebook.pageID -}}
+  {{- $path := printf "%s/posts?fields=message,created_time,full_picture,permalink_url&limit=%d" . (mul $cfg.posts 3) -}}
+  {{- $res := partial "social/graph.html" $path -}}
+  {{- range $res.data -}}
+    {{- if and .message (lt (len $posts) $cfg.posts) -}}
+      {{- $posts = $posts | append (dict
+        "date" (time.AsTime .created_time)
+        "text" .message
+        "image" (partial "social/image.html" .full_picture)
+        "link" .permalink_url
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $posts }}{{ $posts = hugo.Data.social.facebook }}{{ end -}}
+{{- return $posts -}}

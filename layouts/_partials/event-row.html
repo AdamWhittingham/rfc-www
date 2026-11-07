@@ -1,0 +1,15 @@
+{{- $date := time.AsTime .date }}
+<div class="event-row observe-fade">
+  <div class="event-badge">
+    <span class="event-badge__day">{{ $date.Day }}</span>
+    <span class="event-badge__month">{{ $date.Format "Jan" }}</span>
+  </div>
+  <div class="event-details">
+    <span class="event-details__tag tag--{{ .tag }}">{{ partial "event-label.html" . }}</span>
+    <div class="event-details__name">{{ .name }}</div>
+    <div class="event-details__time">{{ .time }}</div>
+    {{- with .desc }}
+    <p class="event-details__desc">{{ . }}</p>
+    {{- end }}
+  </div>
+</div>

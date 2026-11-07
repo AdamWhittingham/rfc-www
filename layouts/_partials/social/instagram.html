@@ -1,0 +1,25 @@
+{{- /* Returns the latest Instagram posts as a list of cards
+       (date, text, image, link), falling back to data/social.yaml.
+       Uses the Instagram account linked to the Facebook Page. */ -}}
+{{- $cfg := site.Params.social -}}
+{{- $posts := slice -}}
+{{- $userID := $cfg.instagram.userID -}}
+{{- if and (not $userID) $cfg.facebook.pageID -}}
+  {{- $page := partial "social/graph.html" (printf "%s?fields=instagram_business_account" $cfg.facebook.pageID) -}}
+  {{- with $page.instagram_business_account }}{{ $userID = .id }}{{ end -}}
+{{- end -}}
+{{- with $userID -}}
+  {{- $path := printf "%s/media?fields=caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=%d" . $cfg.posts -}}
+  {{- $res := partial "social/graph.html" $path -}}
+  {{- range $res.data -}}
+    {{- $img := cond (eq .media_type "VIDEO") .thumbnail_url .media_url -}}
+    {{- $posts = $posts | append (dict
+      "date" (time.AsTime .timestamp)
+      "text" .caption
+      "image" (partial "social/image.html" $img)
+      "link" .permalink
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $posts }}{{ $posts = hugo.Data.social.instagram }}{{ end -}}
+{{- return $posts -}}

@@ -1,0 +1,13 @@
+{{- /* Downloads a remote post image and publishes a resized local copy, so the
+       site doesn't hotlink Meta's CDN URLs (which expire). Returns "" on failure. */ -}}
+{{- $src := "" -}}
+{{- with . -}}
+  {{- with try (resources.GetRemote .) -}}
+    {{- with .Value -}}
+      {{- with try (.Fill "800x600 Center webp") -}}
+        {{- with .Value }}{{ $src = (. | resources.Copy (printf "images/social/%s.webp" (md5 $))).RelPermalink }}{{ end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $src -}}

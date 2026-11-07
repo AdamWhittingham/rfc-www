@@ -1,0 +1,23 @@
+{{- /* One feed card. Context: dict "post" (date, text, image, link, icon) "platform" (fb | ig) */ -}}
+{{- $post := .post -}}
+{{- $fb := eq .platform "fb" -}}
+<article class="feed-card observe-fade">
+  <div class="feed-card__img">
+    {{- with $post.image }}
+    <img src="{{ . | relURL }}" alt="" loading="lazy">
+    {{- else }}
+    <div class="feed-card__img-placeholder">{{ $post.icon | default "📷" }}</div>
+    {{- end }}
+    <div class="feed-card__platform feed-card__platform--{{ .platform }}">
+      {{ if $fb }}{{ partial "icon.html" (dict "name" "facebook" "size" 12 "fill" "white") }}{{ else }}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>{{ end }}
+    </div>
+  </div>
+  <div class="feed-card__body">
+    <div class="feed-card__date">{{ (time.AsTime $post.date).Format "2 Jan 2006" }}</div>
+    <p class="feed-card__text">{{ $post.text | plainify | truncate 240 }}</p>
+    <a href="{{ $post.link }}" target="_blank" rel="noopener" class="feed-card__link">
+      {{ if $fb }}Read on Facebook{{ else }}View on Instagram{{ end }}
+      {{ partial "icon.html" (dict "name" "arrow" "size" 12) }}
+    </a>
+  </div>
+</article>

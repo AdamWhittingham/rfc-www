@@ -1,0 +1,64 @@
+/* Gallery filter tabs */
+.gallery-filter {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.filter-btn {
+  font-family: var(--font-label);
+  font-weight: 700; font-size: 11px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.45rem 1rem; border-radius: 2px;
+  border: 1.5px solid rgba(139,125,94,0.3);
+  background: transparent; color: var(--khaki);
+  cursor: pointer; transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--ink); }
+.filter-btn.active {
+  background: var(--ink); color: var(--gold);
+  border-color: var(--ink);
+}
+
+/* Masonry-ish grid */
+.photo-grid {
+  columns: 3; column-gap: 8px;
+}
+.photo-item {
+  break-inside: avoid; margin-bottom: 8px;
+  cursor: pointer; overflow: hidden;
+  position: relative; display: block;
+}
+.photo-item::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(10,9,7,0);
+  transition: background 0.3s;
+}
+.photo-item:hover::after { background: rgba(10,9,7,0.25); }
+.photo-item img { width: 100%; display: block; transition: transform 0.5s; }
+.photo-item:hover img { transform: scale(1.02); }
+.photo-placeholder {
+  background: var(--aged);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 200px; gap: 0.5rem;
+  padding: 1.5rem;
+}
+.photo-placeholder__icon { font-size: 1.5rem; opacity: 0.5; }
+.photo-placeholder__label {
+  font-family: var(--font-label); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--khaki); text-align: center;
+}
+
+.photo-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 1.5rem 0.75rem 0.75rem;
+  font-family: var(--font-label); font-size: 11px;
+  letter-spacing: 0.05em; color: white;
+  opacity: 0; transition: opacity 0.3s;
+  z-index: 1;
+}
+.photo-item:hover .photo-caption { opacity: 1; }
+
+@media (max-width: 800px) { .photo-grid { columns: 2; } }
+@media (max-width: 480px) { .photo-grid { columns: 1; } }

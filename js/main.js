@@ -33,15 +33,6 @@
     });
   }
 
-  // --- Active nav link ---
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav__links a, .nav__mobile a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
-  });
-
   // --- Social Feed Tabs ---
   const tabs = document.querySelectorAll('.social-tab');
   const panels = document.querySelectorAll('.social-tab-panel');
@@ -53,6 +44,20 @@
       const target = tab.dataset.tab;
       panels.forEach(p => {
         p.classList.toggle('active', p.dataset.panel === target);
+      });
+    });
+  });
+
+  // --- Gallery filter ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.photo-item').forEach(item => {
+        item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
       });
     });
   });

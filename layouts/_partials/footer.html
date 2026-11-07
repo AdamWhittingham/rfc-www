@@ -1,0 +1,51 @@
+{{- $p := site.Params -}}
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" aria-label="Site footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand-name">Red Feather Club</div>
+      <div class="footer__brand-sub">95th Bomb Group Heritage Association</div>
+      <p class="footer__brand-desc">A living museum and monument to the men of the 95th Bomb Group, Eighth Air Force — the only group to receive the Distinguished Unit Citation three times. Operated by volunteers from a faithfully restored site at Horham, Suffolk.</p>
+      <div class="footer__social">
+        <a class="footer__social-btn" href="{{ $p.social.facebook.url }}" target="_blank" rel="noopener" aria-label="Facebook">
+          {{ partial "icon.html" (dict "name" "facebook" "size" 16 "fill" "var(--khaki)") }}
+        </a>
+        <a class="footer__social-btn" href="{{ $p.social.instagram.url }}" target="_blank" rel="noopener" aria-label="Instagram">
+          {{ partial "icon.html" (dict "name" "instagram" "size" 16 "fill" "var(--khaki)" "stroke" 2) }}
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__col-title">Explore</div>
+      <ul class="footer__links">
+        <li><a href="{{ relref . "/pages/history" }}">Our Past</a></li>
+        <li><a href="{{ relref . "/pages/museum" }}">The Museum</a></li>
+        <li><a href="{{ relref . "/pages/events" }}">Events &amp; Open Days</a></li>
+        <li><a href="{{ relref . "/pages/gallery" }}">Gallery</a></li>
+        <li><a href="{{ relref . "/pages/museum#school" }}">School Visits</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Information</div>
+      <ul class="footer__links">
+        <li><a href="{{ relref . "/pages/contact" }}">Contact &amp; Find Us</a></li>
+        <li><a href="{{ relref . "/pages/support" }}">Support Us</a></li>
+        <li><a href="{{ $p.merchURL }}" target="_blank" rel="noopener">Official Merch Store</a></li>
+        <li><a href="{{ $p.databaseURL }}" target="_blank" rel="noopener">Personnel Database</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Connect</div>
+      <ul class="footer__links">
+        <li><a href="{{ $p.social.facebook.url }}" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="{{ $p.social.instagram.url }}" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>© {{ now.Year }} 95th Bomb Group Heritage Association · <span class="footer__charity">Registered Charity No. {{ $p.charity }}</span></p>
+    <p>{{ $p.address }}</p>
+    <p>Any unauthorised reproduction constitutes an infringement of copyright.</p>
+  </div>
+</footer>
