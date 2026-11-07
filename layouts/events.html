@@ -3,7 +3,7 @@
 <div class="page-hero">
   <!-- Optional: <div class="page-hero__bg" style="background-image:url('/images/events-hero.jpg')"></div> -->
   <div class="page-hero__inner">
-    <div class="section-label">2026 Season</div>
+    <div class="section-label">{{ hugo.Data.events.season }} Season</div>
     <h1 class="section-title">Forthcoming Events</h1>
     <p class="section-body">Open days, evening dances, living history weekends and more. The Red Feather Club comes to life throughout the year — we'd love to see you.</p>
   </div>
@@ -20,7 +20,7 @@
     {{- $events := where hugo.Data.events.events "group" .id }}
     {{- if $events }}
 
-    <h2 class="season-heading observe-fade">{{ .heading | safeHTML }}</h2>
+    <h2 class="season-heading observe-fade">{{ hugo.Data.events.season }} {{ .heading | safeHTML }}</h2>
     {{- end }}
     {{- range sort $events "date" }}
     {{ partial "event-row.html" . }}

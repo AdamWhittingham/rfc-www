@@ -39,7 +39,7 @@
     <div class="hero__actions fade-up fade-up--4">
       <a href="{{ relref . "/pages/events" }}" class="btn btn--primary">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        2026 Events
+        {{ hugo.Data.events.season }} Events
       </a>
       <a href="{{ relref . "/pages/museum" }}" class="btn btn--outline">Explore the Museum</a>
     </div>
@@ -158,7 +158,7 @@
     <div class="events-grid">
       <div class="observe-fade">
         <div class="section-label">Diary Dates</div>
-        <h2 class="section-title">2026 Season</h2>
+        <h2 class="section-title">{{ hugo.Data.events.season }} Season</h2>
         <p class="section-body">The museum opens on the last Sunday of each month, April to October, 10am–4pm. We also hold special evening events and educational visits throughout the year.</p>
         <br>
         <a href="{{ relref . "/pages/events" }}" class="btn btn--primary" style="margin-top:0.5rem;">Full Events Calendar</a>
