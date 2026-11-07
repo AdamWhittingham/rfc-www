@@ -30,14 +30,14 @@
 
 .event-badge__month {
   display: block; font-family: var(--font-label);
-  font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--khaki-light);
+  font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--sand);
 }
 
 .event-details__tag {
   display: inline-block;
-  font-family: var(--font-label); font-size: 12px;
-  letter-spacing: 0.2em; text-transform: uppercase;
+  font-family: var(--font-label); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
   padding: 0.2rem 0.6rem;
   border-radius: 2px; margin-bottom: 0.4rem;
 }
@@ -53,8 +53,8 @@
 }
 
 .event-details__time {
-  font-family: var(--font-label); font-size: 13px;
-  color: var(--khaki); letter-spacing: 0.05em;
+  font-family: var(--font-label); font-size: 15px; font-weight: 600;
+  color: var(--khaki); letter-spacing: 0.03em;
 }
 
 .event-details__desc {

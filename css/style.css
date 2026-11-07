@@ -607,13 +607,13 @@ body::before {
 .event-date__mon {
   display: block;
   font-family: var(--font-label);
-  font-size: 12px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--khaki-light);
+  font-size: 13px; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--sand);
 }
 
 .event-info__type {
   font-family: var(--font-label);
-  font-size: 12px; letter-spacing: 0.25em;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--gold-deep);
   margin-bottom: 0.2rem;
 }
@@ -626,7 +626,7 @@ body::before {
 
 .event-info__time {
   font-family: var(--font-label);
-  font-size: 13px; color: var(--khaki);
+  font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: var(--khaki);
   margin-top: 0.2rem;
 }
 
